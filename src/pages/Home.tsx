@@ -1,8 +1,18 @@
 // import React from 'react'
 
+import Exercises from "../components/Exercises"
+import HeroBanner from "../components/HeroBanner"
+import SearchExercises from "../components/SearchExercises"
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <div>
+        <HeroBanner />
+        <SearchExercises />
+        <Exercises />
+      </div>
+    </>
   )
 }
 
