@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .button {
+        @apply px-4 py-2 font-medium tracking-wide rounded-md shadow-md bg-acent-light-color-2;
+    }
+    .button--action {
+        @apply bg-indigo-300 text-indigo-800 hover:bg-indigo-200;
+    } 
+    .button--success {
+        @apply bg-green-300 text-green-800 hover:bg-green-200;
+    }
+    .button--warning {
+        @apply bg-red-300 text-red-800 hover:bg-red-200;
+    }
+}
