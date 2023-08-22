@@ -91,8 +91,9 @@ body {
 }
 
 .search-btn:hover {
-  color: #ff2625 !important;
-  border: 1px solid #ff2625 !important;
+  /* color: #ff2625 !important; */
+  /* border: 1px solid #ff2625 !important; */
+  background-color: #fc4846;
 }
 
 .exercise-video {
@@ -104,7 +105,7 @@ body {
   text-decoration: none;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1248px) {
   .detail-image {
     width: 300px;
     height: 300px;

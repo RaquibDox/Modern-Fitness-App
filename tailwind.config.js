@@ -16,7 +16,7 @@ export default {
       'font-acent-light-color': '#FF2625',
       'font-acent-dark-color': '#F8F8F8',
       'secondary-light-color': '#78DCCA',
-      'acent-light-color-1': '#3A1212',
+      'acent-light-color-1': '#FF2625',
       'acent-light-color-2': '#FF77E9',
       'secondary-dark-color': '#780CC0',
       'acent-dark-color-1': '#3A07B0',

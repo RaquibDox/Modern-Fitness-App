@@ -5,7 +5,7 @@ import HeroBannerImage from '../assets/images/banner.png'
 const HeroBanner = () => {
   return (
     <div className="mt-16 lg:mt-52 sm:ml-12 relative p-5 font-sans">
-      <p className="text-font-acent-light-color font-semibold text-2xl">
+      <p className="text-acent-light-color-1 font-semibold text-2xl">
         Fitness Club
       </p>
       <p className="my-2 sm:my-3 font-bold text-4xl lg:text-5xl leading-normal lg:leading-relaxed">
