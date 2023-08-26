@@ -8,7 +8,7 @@ const HeroBanner = () => {
       <p className="text-acent-light-color-1 font-semibold text-2xl">
         Fitness Club
       </p>
-      <p className="my-2 sm:my-3 font-bold text-4xl lg:text-5xl leading-normal lg:leading-relaxed">
+      <p className="my-2 sm:my-3 font-bold text-4xl lg:text-5xl  lg:leading-[54px]">
         Sweat, Smile <br/> and Repeat
       </p>
       <p className="text-xl desktop:text-2xl mb-6">

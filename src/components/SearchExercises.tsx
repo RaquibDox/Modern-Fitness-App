@@ -1,12 +1,50 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { exerciseOptions, fetchData } from '../utils/fetchData';
+import HorizontalScrollbar from './HorizontalScrollbar';
 
 const SearchExercises = () => {
   const [search, setSearch] = useState<string>('');
+  const [exercises, setExercises] = useState([]);
+  const [bodyParts, setBodyParts] = useState<string[]>([]);
+
+  // console.log("🚀 ~ file: fetchData.tsx:9 ~ export  exerciseOptions.headers.'X-RapidAPI-Key':", exerciseOptions.headers)
+
+  type exerciseType = {
+    bodyPart: string,
+    equipment: string,
+    gifUrn: string,
+    id: string,
+    name: string,
+    target: string
+  }
+
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+
+      setBodyParts(['all', ...bodyPartsData]);
+    }
+
+    fetchExercisesData();
+  },[]);
 
   const handleSearch = async () => {
     if(search){
-      console.log("hi");
-      // const exercisesData = await fetchData();
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+
+      // console.log(exercisesData);
+
+      const searchedExercises = exercisesData.filter((exercise: exerciseType) => exercise.name.toLowerCase().includes(search)
+      || exercise.equipment.toLowerCase().includes(search)
+      || exercise.bodyPart.toLowerCase().includes(search)
+      || exercise.target.toLowerCase().includes(search)
+      );
+      
+      setSearch('');
+      setExercises(searchedExercises);
+
+      console.log(exercises);
+      
     }
   }
 
@@ -24,6 +62,9 @@ const SearchExercises = () => {
         />
         <button className='m-0 search-btn bg-acent-light-color-1 text-white w-[100px] sm:w-[175px] text-lg sm:text-xl h-[56px] rounded-e-lg border-none outline-none'
         onClick={handleSearch}>Search</button>
+      </div>
+      <div className='relative w-full p-5'>
+        <HorizontalScrollbar data={bodyParts} />
       </div>
     </div>
   )
