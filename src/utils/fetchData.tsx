@@ -20,6 +20,8 @@ export const exerciseOptions = {
   
 
 export const fetchData = async ( url: string, options: optionsType) => {
+    console.log("Fetching data....");
+    
     const response = await fetch(url, options);
     const data = await response.json();
 

@@ -1,26 +1,20 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
+import { ExerciseType, ParentProps } from '../utils/tsTypes';
 
-const SearchExercises = () => {
+const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState<string>('');
-  const [exercises, setExercises] = useState([]);
+  // const [exercises, setExercises] = useState([]);
   const [bodyParts, setBodyParts] = useState<string[]>([]);
 
   // console.log("🚀 ~ file: fetchData.tsx:9 ~ export  exerciseOptions.headers.'X-RapidAPI-Key':", exerciseOptions.headers)
 
-  type exerciseType = {
-    bodyPart: string,
-    equipment: string,
-    gifUrn: string,
-    id: string,
-    name: string,
-    target: string
-  }
-
   useEffect(() => {
     const fetchExercisesData = async () => {
       const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+      console.log("bodyPartsData fetched");
+      
 
       setBodyParts(['all', ...bodyPartsData]);
     }
@@ -30,11 +24,13 @@ const SearchExercises = () => {
 
   const handleSearch = async () => {
     if(search){
+      // console.log("Fetching bodyParts data...");
+      
       const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
 
-      // console.log(exercisesData);
+      console.log("Fetching exercisesData data...",exercisesData);
 
-      const searchedExercises = exercisesData.filter((exercise: exerciseType) => exercise.name.toLowerCase().includes(search)
+      const searchedExercises = exercisesData.filter((exercise: ExerciseType) => exercise.name.toLowerCase().includes(search)
       || exercise.equipment.toLowerCase().includes(search)
       || exercise.bodyPart.toLowerCase().includes(search)
       || exercise.target.toLowerCase().includes(search)
@@ -42,8 +38,6 @@ const SearchExercises = () => {
       
       setSearch('');
       setExercises(searchedExercises);
-
-      console.log(exercises);
       
     }
   }
@@ -64,7 +58,11 @@ const SearchExercises = () => {
         onClick={handleSearch}>Search</button>
       </div>
       <div className='relative w-full p-5'>
-        <HorizontalScrollbar data={bodyParts} />
+        <HorizontalScrollbar 
+          data={bodyParts}
+          bodyPart={bodyPart}
+          setBodyPart={setBodyPart}
+        />
       </div>
     </div>
   )

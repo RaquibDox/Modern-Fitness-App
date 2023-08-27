@@ -1,12 +1,30 @@
-import React from 'react'
+// import React, { ReactNode } from 'react'
 
-const HorzontalScrollbar = ({data}: {data: string[]}) => {
+import BodyPart from "./BodyPart";
+import { SetBodyPartType } from "../utils/tsTypes";
+
+// const HorizontalScrollbar = ({data}: {data: string[] | {value?: string, id?: string}[]}) => {
+  const HorizontalScrollbar = ({data, bodyPart, setBodyPart}: {data: string[]; bodyPart: string; setBodyPart: SetBodyPartType }) => {
 
   console.log(data);
   
   return (
-    <div>HorzontalScrollbar</div>
+    <div>
+      {data.map((item: string) => (
+        <div
+          key={item}
+          // itemId={item.id || item}
+          title={item}
+        >
+          <BodyPart 
+            item={item}
+            bodyPart={bodyPart}
+            setBodyPart={setBodyPart}
+          />
+        </div>
+      ))}
+    </div>
   )
 }
 
-export default HorzontalScrollbar
+export default HorizontalScrollbar
