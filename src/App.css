@@ -139,3 +139,25 @@ body {
     width: 280px;
   }
 }
+
+
+.slick-list{
+    height: 320px;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.slick-arrow.slick-prev{
+  background-color: #000;
+}
+
+.slick-arrow.slick-next{
+  background-color: #000;
+}
+
+.slick-slide.slick-active{
+  /* background-color: #000; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -2,14 +2,16 @@
 
 import BodyPart from "./BodyPart";
 import { SetBodyPartType } from "../utils/tsTypes";
+import Slider from "react-slick";
+import { responsiveSettings } from "../utils/sliderSettings";
 
 // const HorizontalScrollbar = ({data}: {data: string[] | {value?: string, id?: string}[]}) => {
   const HorizontalScrollbar = ({data, bodyPart, setBodyPart}: {data: string[]; bodyPart: string; setBodyPart: SetBodyPartType }) => {
 
   console.log(data);
-  
+
   return (
-    <div>
+    <Slider {...responsiveSettings(data.length)}>
       {data.map((item: string) => (
         <div
           key={item}
@@ -23,7 +25,7 @@ import { SetBodyPartType } from "../utils/tsTypes";
           />
         </div>
       ))}
-    </div>
+    </Slider>
   )
 }
 

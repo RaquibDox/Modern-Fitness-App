@@ -4,7 +4,7 @@
 
 @layer components {
     .button {
-        @apply px-4 py-2 font-medium tracking-wide rounded-md shadow-md bg-acent-light-color-2;
+        @apply px-4 py-2 font-medium tracking-wide rounded-md shadow-md bg-accent-light-color-2;
     }
     .button--action {
         @apply bg-indigo-300 text-indigo-800 hover:bg-indigo-200;
