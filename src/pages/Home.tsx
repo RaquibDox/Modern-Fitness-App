@@ -10,7 +10,6 @@ const Home: React.FC = () => {
   const [bodyPart, setBodyPart] = useState('all');
   const [exercises, setExercises] = useState<ExerciseType[]>([]);
 
-  console.warn(exercises);
 
   return (
     <>
@@ -22,9 +21,9 @@ const Home: React.FC = () => {
           setBodyPart={setBodyPart}
         />
         <Exercises 
+          exercises={exercises}
           setExercises={setExercises}
           bodyPart={bodyPart}
-          setBodyPart={setBodyPart}
         />
       </div>
     </>

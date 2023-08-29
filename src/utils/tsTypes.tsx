@@ -1,17 +1,25 @@
 export type ExerciseType = {
     bodyPart: string,
     equipment: string,
-    gifUrn: string,
+    gifUrl: string,
     id: string,
     name: string,
     target: string
   }
 
   export type SetBodyPartType = (part: string) => void;
+  export type SetExercisesType = (newItems: ExerciseType[]) => void;
   
   export type ParentProps = {
-    setExercises: (newItems: ExerciseType[]) => void,
+    setExercises: SetExercisesType,
     bodyPart: string,
     setBodyPart: SetBodyPartType
   }
+
+  export type ParentPropsExercises = {
+    exercises: ExerciseType[],
+    setExercises: SetExercisesType,
+    bodyPart: string
+  }
+
 
