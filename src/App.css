@@ -105,10 +105,10 @@ body {
   text-decoration: none;
 }
 
-@media screen and (max-width: 1248px) {
+@media screen and (max-width: 1100px) {
   .detail-image {
-    width: 300px;
-    height: 300px;
+    width:  max(50vw, 300px);
+    height: max(50vw, 300px);
   }
 
   .react-horizontal-scrolling-menu--scroll-container {

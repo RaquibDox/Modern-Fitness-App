@@ -7,6 +7,15 @@ export type ExerciseType = {
     target: string
   }
 
+  export type ExerciseDetailsType = {
+    bodyPart: string,
+    equipment: string,
+    gifUrl: string,
+    id: string,
+    name: string,
+    target: string
+  }
+
   export type SetBodyPartType = (part: string) => void;
   export type SetExercisesType = (newItems: ExerciseType[]) => void;
   

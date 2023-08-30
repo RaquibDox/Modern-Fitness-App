@@ -10,6 +10,7 @@ export default {
 
     colors: {
       'primary-light-color': '#F1F1F1',
+      'button-light-color': '#FFF2BD',
       'primary-dark-color': '#010101',
       'font-light-color': '#000000',
       'font-dark-color': '#F8F8F8',
