@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState, useEffect} from 'react'
 import ReactPaginate from 'react-paginate'
 import { ParentPropsExercises, ExerciseType } from '../utils/tsTypes'
 import { exerciseOptions, fetchData } from '../utils/fetchData'
@@ -31,6 +33,7 @@ const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises, bod
 
       setExercises(exercisesData);
     })()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyPart]);
 
   return (
