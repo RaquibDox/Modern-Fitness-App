@@ -8,8 +8,6 @@ import { responsiveSettings } from "../utils/sliderSettings";
 // const HorizontalScrollbar = ({data}: {data: string[] | {value?: string, id?: string}[]}) => {
   const HorizontalScrollbar = ({data, bodyPart, setBodyPart}: {data: string[]; bodyPart: string; setBodyPart: SetBodyPartType }) => {
 
-  console.log(data);
-
   return (
     <Slider {...responsiveSettings(data.length)}>
       {data.map((item: string) => (

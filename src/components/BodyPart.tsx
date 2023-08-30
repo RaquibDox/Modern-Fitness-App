@@ -3,7 +3,6 @@ import { SetBodyPartType } from '../utils/tsTypes';
 import Icon from '../assets/icons/gym.png'
 
 const BodyPart = ({item, bodyPart, setBodyPart}: {item: string; bodyPart: string; setBodyPart: SetBodyPartType}) => {
-    console.log(item, bodyPart, setBodyPart);
     
   return (
     <div
