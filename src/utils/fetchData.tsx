@@ -1,15 +1,8 @@
-type optionsType = {
-  method: string,
-  url: string,
-  headers: {
-    'X-RapidAPI-Key': string,
-    'X-RapidAPI-Host': string
-  }
-}
+import { fetchOptionsType } from "./tsTypes";
 
-export const exerciseOptions = {
+export const exerciseOptions: fetchOptionsType = {
     method: 'GET',
-    url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+    // url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
@@ -17,9 +10,18 @@ export const exerciseOptions = {
   };
 
   // console.log(import.meta.env.VITE_RAPID_API_KEY);
+
+
+  export const youtubeOptions: fetchOptionsType = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
+      'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
+    }
+  };
   
 
-export const fetchData = async ( url: string, options: optionsType) => {
+export const fetchData = async ( url: string, options: fetchOptionsType) => {
     console.log("Fetching data....");
     
     const response = await fetch(url, options);

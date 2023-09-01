@@ -31,4 +31,33 @@ export type ExerciseType = {
     bodyPart: string
   }
 
+  export type fetchOptionsType = {
+    method: string,
+    headers: {
+      'X-RapidAPI-Key': string,
+      'X-RapidAPI-Host': string
+    }
+  }
+
+  type ThumbnailType =  {
+    height: number, 
+    url: string, 
+    width: number
+  }[]
+
+  export type VideoType = {
+    video: {
+      channelId: string,
+      channelName: string,
+      description: string,
+      lengthText: string,
+      publishedTimeText: string,
+      thumbnails: ThumbnailType,
+      title: string,
+      videoId: string,
+      viewCountText: string
+    }
+  }
+
+
 

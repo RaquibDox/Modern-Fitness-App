@@ -4,7 +4,7 @@ import BodyPartImage from '../assets/icons/body-part.png'
 import TargetImage from '../assets/icons/target.png'
 import EquipmentImage from '../assets/icons/equipment.png'
 
-import demoGif from '../assets/demo.gif'
+// import demoGif from '../assets/demo.gif'
 
 const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseDetailsType }) => {
   const { bodyPart, equipment, gifUrl, name, target} = exerciseDetail;
@@ -45,7 +45,7 @@ const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseDetailsType }) => {
   return (
     <div className='flex gap-[60px] flex-col lg:flex-row p-5 items-center font-sans'>
       
-      <img src={demoGif} alt={name} loading='lazy' className='detail-image'/>
+      <img src={gifUrl} alt={name} loading='lazy' className='detail-image'/>
 
       <div className='flex flex-col gap-4 sm:gap-6 items-center m-4'>
         <div className='flex flex-col gap-5 lg:gap-9'>
@@ -53,7 +53,7 @@ const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseDetailsType }) => {
             {name}
           </h2>
           <p className='text-xl sm:text-2xl'>
-            {`Exercises keep you strong. ${name} is one of the best exercises to target your ${target}. It will help you improve your mood and gain energy`}
+            {`Exercises keep you strong. ${name.charAt(0).toUpperCase() + name.slice(1)} is one of the best exercises to target your ${target}. It will help you improve your mood and gain energy`}
           </p>
         </div>
         
