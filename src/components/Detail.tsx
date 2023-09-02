@@ -28,8 +28,8 @@ const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseDetailsType }) => {
   
     return (
       <div className='flex flex-col sm:gap-4 gap-2'>
-      {extraDetail.map((item) => (
-      <div key={item.name} className='flex gap-2 sm:gap-6 items-center'>
+      {extraDetail.map((item, index) => (
+      <div key={index} className='flex gap-2 sm:gap-6 items-center'>
         <button className='m-0 bg-button-light-color rounded-[50%] sm:w-[80px] sm:h-[80px] w-12 h-12'>
           <img src={item.icon} alt={bodyPart} className='block m-auto sm:w-[50px] sm:h-[50px] w-8 h-8'/>
         </button>
