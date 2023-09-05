@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { exerciseOptions, fetchData } from '../utils/fetchData';
-import HorizontalScrollbar from './HorizontalScrollbar';
+import HomePageScrollbar from './HomePageScrollbar';
 import { ExerciseType, ParentProps } from '../utils/tsTypes';
 
 const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBodyPart }) => {
@@ -58,11 +58,10 @@ const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBody
         onClick={handleSearch}>Search</button>
       </div>
       <div className='relative w-full p-5'>
-        <HorizontalScrollbar 
+        <HomePageScrollbar 
           data={bodyParts}
           bodyPart={bodyPart}
           setBodyPart={setBodyPart}
-          isBodyPart={true}
         />
       </div>
     </div>

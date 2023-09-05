@@ -2,7 +2,7 @@
 import React,{ useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 
-import { ExerciseDetailsType } from '../utils/tsTypes'
+import { ExerciseType } from '../utils/tsTypes'
 import { fetchData, exerciseOptions, youtubeOptions } from '../utils/fetchData'
 import Detail from '../components/Detail'
 import ExerciseVideos from '../components/ExerciseVideos'
@@ -10,7 +10,7 @@ import SimilarExercises from '../components/SimilarExercises'
 
 const ExerciseDetail = () => {
 
-  const [exerciseDetail, setExerciseDetail] = useState<ExerciseDetailsType>({
+  const [exerciseDetail, setExerciseDetail] = useState<ExerciseType>({
     bodyPart: "",
     equipment: "",
     gifUrl: "",
@@ -26,7 +26,7 @@ const ExerciseDetail = () => {
 
   useEffect(() => {
     (async () => {
-      console.log(id);
+      // console.log(id);
       
       const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
@@ -42,11 +42,11 @@ const ExerciseDetail = () => {
 
       const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
       setTargetMuscleExercises(targetMuscleExercisesData)
-      console.log("🚀 ~ file: ExerciseDetail.tsx:43 ~ targetMuscleExercisesData:", targetMuscleExercisesData)
+      // console.log("🚀 ~ file: ExerciseDetail.tsx:43 ~ targetMuscleExercisesData:", targetMuscleExercisesData)
       
       const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
       setEquipmentExercises(equipmentExercisesData)
-      console.log("🚀 ~ file: ExerciseDetail.tsx:47 ~ equipmentMuscleExercisesData:", equipmentExercisesData)
+      // console.log("🚀 ~ file: ExerciseDetail.tsx:47 ~ equipmentMuscleExercisesData:", equipmentExercisesData)
       
     })()
   }, [id])
