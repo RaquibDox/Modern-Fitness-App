@@ -4,10 +4,10 @@ import BodyPartImage from '../assets/icons/body-part.png'
 import TargetImage from '../assets/icons/target.png'
 import EquipmentImage from '../assets/icons/equipment.png'
 
-// import demoGif from '../assets/demo.gif'
+import demoGif from '../assets/demo.gif'
 
 const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseDetailsType }) => {
-  const { bodyPart, equipment, gifUrl, name, target} = exerciseDetail;
+  const { bodyPart, equipment, gifUrl = demoGif, name, target} = exerciseDetail;
 
   const InfoButtons = () => {
 

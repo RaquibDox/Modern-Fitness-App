@@ -62,7 +62,7 @@ body {
 }
 
 .exercise-card {
-  width: 400px;
+  min-width: min(80vw, 400px);
   height: 445px;
   background: #fff;
   border-top: 4px solid #ff2625;
@@ -138,23 +138,60 @@ body {
   .exercise-card {
     width: 280px;
   }
+
+  .details-slider {
+    width: 80vw;
+  }
 }
 
-.slick-list {
+/* home page slider */
+
+.home-page-slider .slick-list {
   height: 320px;
   padding-top: 20px;
   padding-right: 20px;
 }
 
-.slick-arrow.slick-prev {
+.home-page-slider .slick-arrow.slick-prev {
   background-color: #000;
 }
 
-.slick-arrow.slick-next {
+.home-page-slider .slick-arrow.slick-next {
   background-color: #000;
 }
 
-.slick-slide.slick-active {
+.home-page-slider .slick-slide.slick-active {
+  /* background-color: #000; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* details page slider */
+
+.details-slider {
+  width: 90vw;
+  display: block;
+  margin: auto;
+}
+
+.details-slider .slick-list {
+  /* height: 320px; */
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+.details-slider .slick-arrow.slick-prev {
+  background-color: #000;
+  z-index: 10;
+}
+
+.details-slider .slick-arrow.slick-next {
+  background-color: #000;
+  z-index: 10;
+}
+
+.details-slider .slick-slide.slick-active {
   /* background-color: #000; */
   display: flex;
   justify-content: center;
@@ -184,4 +221,10 @@ body {
 }
 .pagination .active {
   background-color: #ff2625;
+}
+
+@media screen and (max-width: 600px) {
+  .details-slider {
+    width: 75vw;
+  }
 }

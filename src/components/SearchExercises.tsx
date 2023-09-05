@@ -62,6 +62,7 @@ const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBody
           data={bodyParts}
           bodyPart={bodyPart}
           setBodyPart={setBodyPart}
+          isBodyPart={true}
         />
       </div>
     </div>

@@ -1,68 +1,46 @@
-export function responsiveSettings(totalSlides: number){
+export function responsiveSettings(totalSlides: number, width: number, dotsVisible: boolean){
 
-    const controlValue = 6;
-    const breakPointControlValue = 200;
-
-    function slideToShowValue(value: number) {
-      if(value > totalSlides){
-        return totalSlides;
-      }
-      else{
-        return value;
-      }
-    }
-
-    function slideToScrollValue(value: number) {
-      if(value > totalSlides){
-        return Math.ceil((totalSlides) / 3);
-      }
-      else{
-        return Math.ceil((value) / 3);
-      }
-    }
+    const maxSlides = 10;
 
     return {
-      dots: true,
+      dots: dotsVisible,
       infinite: false,
       speed: 500,
-      slidesToShow: slideToShowValue(controlValue),
-      slidesToScroll: slideToScrollValue(controlValue),
-      responsive: [
-        {
-          breakpoint: 1470 + breakPointControlValue,
-          settings: {
-            slidesToShow: slideToShowValue(controlValue-1),
-            slidesToScroll: slideToScrollValue(controlValue-1)
-          }
-        },
-        {
-          breakpoint: 1270 + breakPointControlValue,
-          settings: {
-            slidesToShow: slideToShowValue(controlValue-2),
-            slidesToScroll: slideToScrollValue(controlValue-2)
-          }
-        },
-        {
-          breakpoint: 1070 + breakPointControlValue,
-          settings: {
-            slidesToShow: slideToShowValue(controlValue-3),
-            slidesToScroll: slideToScrollValue(controlValue-3)
-          }
-        },
-        {
-          breakpoint: 765 + breakPointControlValue,
-          settings: {
-            slidesToShow: slideToShowValue(controlValue-4),
-            slidesToScroll: slideToScrollValue(controlValue-4),
-          }
-        },
-        {
-          breakpoint: 500 + breakPointControlValue,
-          settings: {
-            slidesToShow: slideToShowValue(controlValue-5),
-            slidesToScroll: slideToScrollValue(controlValue-5),
-          }
-        }
-      ]
+      slidesToShow: slideToShowValue(maxSlides, totalSlides),
+      slidesToScroll: slideToScrollValue(maxSlides, totalSlides),
+      responsive: autoBreakpoint(width, totalSlides, maxSlides)
     }
+  }
+
+  function slideToShowValue(value: number, totalSlides: number) {
+    if(value > totalSlides){
+      return totalSlides;
+    }
+    else{
+      return value;
+    }
+  }
+
+  function slideToScrollValue(value: number, totalSlides: number) {
+    if(value > totalSlides){
+      return Math.ceil((totalSlides) / 3);
+    }
+    else{
+      return Math.ceil((value) / 3);
+    }
+  }
+
+  function autoBreakpoint(width: number, totalSlides: number, maxSlides: number) {
+    const adjustedWidth = width + 20;
+    const arr = [];
+    for(let i = 1; i <= maxSlides; i++){
+      arr.push({
+        breakpoint: (adjustedWidth * (i + 1)),
+        settings: {
+          slidesToShow: slideToShowValue(Math.max(i), totalSlides),
+          slidesToScroll: slideToScrollValue(Math.max(i), totalSlides),
+        }
+      })
+    }
+    return arr;
   }
