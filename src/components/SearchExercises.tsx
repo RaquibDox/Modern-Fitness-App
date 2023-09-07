@@ -5,7 +5,6 @@ import { ExerciseType, ParentProps } from '../utils/tsTypes';
 
 const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState<string>('');
-  // const [exercises, setExercises] = useState([]);
   const [bodyParts, setBodyParts] = useState<string[]>([]);
 
   // console.log("🚀 ~ file: fetchData.tsx:9 ~ export  exerciseOptions.headers.'X-RapidAPI-Key':", exerciseOptions.headers)
@@ -15,7 +14,6 @@ const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBody
       const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
       console.log("bodyPartsData fetched");
       
-
       setBodyParts(['all', ...bodyPartsData]);
     }
 

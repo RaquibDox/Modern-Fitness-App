@@ -3,7 +3,6 @@ import { ExerciseType } from '../utils/tsTypes'
 import { Link } from 'react-router-dom';
 
 const ExerciseCard = ({exercise}: {exercise: ExerciseType}) => {
-  // console.log("Exrcise-id : ",exercise.id);
   
   return (
     <Link to={`/exercise/${exercise.id}`}

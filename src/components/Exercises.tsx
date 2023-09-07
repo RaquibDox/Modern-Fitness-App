@@ -5,6 +5,9 @@ import ReactPaginate from 'react-paginate'
 import { ParentPropsExercises, ExerciseType } from '../utils/tsTypes'
 import { exerciseOptions, fetchData } from '../utils/fetchData'
 import ExerciseCard from './ExerciseCard'
+
+import Loader from './Loader'
+
 const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises, bodyPart}) => {
 
   const itemsPerPage = 8;
@@ -57,10 +60,11 @@ const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises, bod
   )
 }
 
-
 function Items({ currentItems }: {currentItems: ExerciseType[]}) {
   return (
     <>
+      {currentItems.length !== 0 ?
+      
       <div id="exercises"
       className='mt-12 lg:mt-[110px] p-5'
       >
@@ -73,6 +77,11 @@ function Items({ currentItems }: {currentItems: ExerciseType[]}) {
           ))}
         </div>
       </div>
+
+      :
+
+      <Loader />
+          }
     </>
   );
 }

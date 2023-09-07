@@ -1,12 +1,12 @@
 import React from 'react'
-import { ExerciseDetailsType } from '../utils/tsTypes'
+import { ExerciseType } from '../utils/tsTypes'
 import BodyPartImage from '../assets/icons/body-part.png'
 import TargetImage from '../assets/icons/target.png'
 import EquipmentImage from '../assets/icons/equipment.png'
 
 import demoGif from '../assets/demo.gif'
 
-const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseDetailsType }) => {
+const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseType }) => {
   const { bodyPart, equipment, gifUrl = demoGif, name, target} = exerciseDetail;
 
   const InfoButtons = () => {

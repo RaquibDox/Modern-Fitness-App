@@ -7,6 +7,7 @@ import { fetchData, exerciseOptions, youtubeOptions } from '../utils/fetchData'
 import Detail from '../components/Detail'
 import ExerciseVideos from '../components/ExerciseVideos'
 import SimilarExercises from '../components/SimilarExercises'
+import Loader from '../components/Loader'
 
 const ExerciseDetail = () => {
 
@@ -21,6 +22,8 @@ const ExerciseDetail = () => {
   const [exerciseVideos, setExerciseVideos] = useState([]);
   const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
   const [equipmentExercises, setEquipmentExercises] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const {id} = useParams();
 
@@ -50,14 +53,25 @@ const ExerciseDetail = () => {
       
     })()
   }, [id])
+
+  useEffect(() =>{
+    setIsLoading(true);
+    
+    return () => {setTimeout(() => { setIsLoading(false) }, 1000)};
+  },[exerciseDetail])
   
 
   return (
-    <div>
-      <Detail exerciseDetail={exerciseDetail}/>
-      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
-      <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises}/>
-    </div>
+    isLoading ?
+      <div className='h-screen flex items-center'>
+        <Loader />
+      </div>
+      :
+      <div>
+        <Detail exerciseDetail={exerciseDetail}/>
+        <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
+        <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises}/>
+      </div>
   )
 }
 

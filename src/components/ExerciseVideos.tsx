@@ -1,5 +1,6 @@
 import React from 'react'
 import { VideoType } from '../utils/tsTypes';
+import Loader from './Loader';
 
 const ExerciseVideos = ({ exerciseVideos, name }: {exerciseVideos: VideoType[], name: string}) => {
   // console.log(exerciseVideos);
@@ -9,6 +10,12 @@ const ExerciseVideos = ({ exerciseVideos, name }: {exerciseVideos: VideoType[], 
       <h1 className='mb-8 text-4xl font-semibold'>
         Watch <span className='text-font-accent-light-color capitalize'>{name}</span> exercise videos
       </h1>
+      {exerciseVideos.length === 0 ?
+      
+      <Loader /> 
+      
+      :
+      
       <div className="flex justify-start flex-wrap items-center flex-col lg:flex-row gap-0 lg:gap-[10px]">
         {exerciseVideos?.slice(0, 6).map((item: VideoType, index: number) =>(
           <a 
@@ -30,6 +37,8 @@ const ExerciseVideos = ({ exerciseVideos, name }: {exerciseVideos: VideoType[], 
           </a>
         ))}
       </div>
+      }
+      
     </div>
   )
 }
