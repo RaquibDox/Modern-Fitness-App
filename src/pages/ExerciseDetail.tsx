@@ -9,7 +9,12 @@ import ExerciseVideos from '../components/ExerciseVideos'
 import SimilarExercises from '../components/SimilarExercises'
 import Loader from '../components/Loader'
 
+import { useDispatch } from 'react-redux'
+import { fetchExercises } from '../features/exercise/exerciseSlice'
+
 const ExerciseDetail = () => {
+
+  const dispatch = useDispatch();
 
   const [exerciseDetail, setExerciseDetail] = useState<ExerciseType>({
     bodyPart: "",
@@ -60,6 +65,9 @@ const ExerciseDetail = () => {
     return () => {setTimeout(() => { setIsLoading(false) }, 1000)};
   },[exerciseDetail])
   
+  useEffect(() =>{
+    dispatch(fetchExercises())
+  },[])
 
   return (
     isLoading ?

@@ -3,7 +3,6 @@ import { VideoType } from '../utils/tsTypes';
 import Loader from './Loader';
 
 const ExerciseVideos = ({ exerciseVideos, name }: {exerciseVideos: VideoType[], name: string}) => {
-  // console.log(exerciseVideos);
   
   return (
     <div className='mt-5 lg:mt-[200px] p-5 font-sans'>
