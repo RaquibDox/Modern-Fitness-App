@@ -4,21 +4,24 @@ import axios from "axios";
 
 import { exerciseOptions, youtubeOptions } from '../../utils/fetchData';
 
+import { StateType, ExerciseType, ExercisesStateType } from "../../utils/tsTypes";
+
 const BASE_URL = 'https://exercisedb.p.rapidapi.com/exercises'
 
-const initialState = {
+const initialState: ExercisesStateType = {
     exercises: [],
     status: 'idle',
     error: null,
 }
 
-export const fetchExercises = createAsyncThunk('exercises/fetchExercises', async () => {
+export const fetchExercises = createAsyncThunk('exercises/fetchExercises', async (): Promise<ExerciseType[] | null[] > => {
     try{
         const response = await axios.request({...exerciseOptions, url: BASE_URL})
         console.log(response.data);
-        return [...response.data]
+        return [...response.data];
     }catch(err){
         console.error(err);
+        return []
     }
 })
 
@@ -29,11 +32,11 @@ const exerciseSlice = createSlice({
     extraReducers(builder) {
         builder.addCase(fetchExercises.fulfilled, (state, action) => {
             state.status = 'succeeded'
-            state.exercises.push(action.payload)
+            state.exercises = action.payload
         })
     }
 })
 
-export const getAllExercises = (state) => state.exercises.exercises;
+export const getAllExercises = (state: StateType) => state.exercises.exercises;
 
 export default exerciseSlice.reducer;

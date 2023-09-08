@@ -9,12 +9,13 @@ import ExerciseVideos from '../components/ExerciseVideos'
 import SimilarExercises from '../components/SimilarExercises'
 import Loader from '../components/Loader'
 
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../store/store'
 import { fetchExercises } from '../features/exercise/exerciseSlice'
 
 const ExerciseDetail = () => {
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [exerciseDetail, setExerciseDetail] = useState<ExerciseType>({
     bodyPart: "",
@@ -67,6 +68,7 @@ const ExerciseDetail = () => {
   
   useEffect(() =>{
     dispatch(fetchExercises())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   return (

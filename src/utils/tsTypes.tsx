@@ -49,6 +49,15 @@ export type ExerciseType = {
       viewCountText: string
     }
   }
+  
+  export type ExercisesStateType = {
+    exercises: ExerciseType[] | null[],
+    status: "idle" | "loading" | "succeeded" | "failed",
+    error : null | string
+  }
 
+  export type StateType = {
+    exercises: ExercisesStateType
+  }
 
 
