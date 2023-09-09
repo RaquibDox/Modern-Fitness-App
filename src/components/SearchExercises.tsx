@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { exerciseOptions, fetchData } from '../utils/fetchData';
 import HomePageScrollbar from './HomePageScrollbar';
 import { ExerciseType, ParentProps } from '../utils/tsTypes';
 
 import { useAppSelector } from '../store/store';
 import { getAllExercises } from '../features/exercise/exerciseSlice';
+import { getBodyParts } from '../features/bodypart/bodyPartSlice';
 
 
 const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBodyPart }) => {
@@ -13,16 +13,10 @@ const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBody
 
   // console.log("🚀 ~ file: fetchData.tsx:9 ~ export  exerciseOptions.headers.'X-RapidAPI-Key':", exerciseOptions.headers)
 
+  const bodyPartsData: string[] = useAppSelector(getBodyParts);
   useEffect(() => {
-    const fetchExercisesData = async () => {
-      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
-      console.log("bodyPartsData fetched");
-      
       setBodyParts(['all', ...bodyPartsData]);
-    }
-
-    fetchExercisesData();
-  },[]);
+  },[bodyPartsData]);
 
   const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
   const handleSearch = () => {

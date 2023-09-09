@@ -60,4 +60,14 @@ export type ExerciseType = {
     exercises: ExercisesStateType
   }
 
+  export type BodyPartInitialType = {
+    bodyPart: string[],
+    status: "idle" | "loading" | "succeeded" | "failed",
+    error : null | string
+  }
+
+  export type BodyPartStateType = {
+    bodyPart: BodyPartInitialType
+  }
+
 

@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import exerciseSlice from "../features/exercise/exerciseSlice";
 import { useDispatch, useSelector, TypedUseSelectorHook} from 'react-redux'
+import bodyPartSlice from "../features/bodypart/bodyPartSlice";
 
 const store = configureStore({
     reducer: {
         exercises: exerciseSlice,
+        bodyPart: bodyPartSlice
     },
 })
 

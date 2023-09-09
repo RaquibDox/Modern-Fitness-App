@@ -8,13 +8,15 @@ import Footer from './components/Footer'
 // import { useDispatch } from 'react-redux'
 import { useAppDispatch } from './store/store'
 import { fetchExercises } from './features/exercise/exerciseSlice'
+import { fetchBodyPart } from './features/bodypart/bodyPartSlice'
 
 const App = () => {
 
   const dispatch = useAppDispatch();
 
   useEffect(() =>{
-    dispatch(fetchExercises())
+    dispatch(fetchExercises());
+    dispatch(fetchBodyPart());
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
