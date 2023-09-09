@@ -17,10 +17,10 @@ const HeroBanner = () => {
       <a href="#exercises">
         <button  className="button button--warning" >Explore Exercises</button>
       </a>
-      <p className='font-semibold text-font-accent-light-color opacity-10 hidden desktop:block text-[200px] -z-50'>
+      <p className='relative top-[6rem] font-semibold text-font-accent-light-color opacity-10 hidden desktop:block text-[200px] -z-50'>
         Exercise
       </p>
-      <img src={HeroBannerImage} alt='banner' className="hero-banner-img"/>
+      <img src={HeroBannerImage} alt='banner' className="hero-banner-img hidden desktop:block"/>
     </div>
   )
 }

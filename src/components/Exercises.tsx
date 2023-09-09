@@ -47,17 +47,20 @@ const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises, bod
       <Items currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">>"
+        nextClassName="next"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
+        pageRangeDisplayed={2}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="<<"
+        previousClassName="previous"
         renderOnZeroPageCount={null}
         containerClassName="pagination"
         pageLinkClassName="page-num"
         previousLinkClassName="page-num"
         nextLinkClassName="page-num"
         activeLinkClassName="active"
+        marginPagesDisplayed={1}
       />
     </>
   )
