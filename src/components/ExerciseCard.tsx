@@ -3,6 +3,7 @@ import { ExerciseType } from '../utils/tsTypes'
 import { Link } from 'react-router-dom';
 
 const ExerciseCard = ({exercise}: {exercise: ExerciseType}) => {
+  // console.log(exercise.gifUrl);
   
   return (
     <Link to={`/exercise/${exercise.id}`}
@@ -17,9 +18,9 @@ const ExerciseCard = ({exercise}: {exercise: ExerciseType}) => {
               {exercise.target}
             </button>
         </div>
-        <p className='ml-5 text-font-light-color font-bold mt-3 pb-3 capitalize text-xl font-sans'>
+        <h2 className='ml-5 text-font-light-color font-bold mt-3 pb-3 capitalize text-xl font-sans text-ellipsis line-clamp-2'>
           {exercise.name}
-        </p>
+        </h2>
     </Link>
   )
 }

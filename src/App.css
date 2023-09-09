@@ -62,7 +62,7 @@ body {
 }
 
 .exercise-card {
-  min-width: min(80vw, 400px);
+  width: min(80vw, 400px);
   height: 445px;
   background: #fff;
   border-top: 4px solid #ff2625;

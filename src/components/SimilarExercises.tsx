@@ -9,6 +9,8 @@ import { getAllExercises } from '../features/exercise/exerciseSlice';
 
 const SimilarExercises = ({targetMuscle, equipment}: {targetMuscle: string, equipment: string}) => {
 
+  // console.log(targetMuscle, equipment);
+  
   const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
 
   const targetMuscleExercises = exercisesData.filter((exercise: ExerciseType) => 

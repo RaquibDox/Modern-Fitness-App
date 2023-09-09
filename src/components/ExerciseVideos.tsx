@@ -26,7 +26,7 @@ const ExerciseVideos = ({ exerciseVideos, name }: {exerciseVideos: VideoType[], 
           >
             <img src={item.video.thumbnails[0].url} alt={item.video.title} />
             <div>
-              <h2 className='text-xl font-semibold'>
+              <h2 className='text-xl font-semibold text-ellipsis line-clamp-2'>
                 {item.video.title}
               </h2>
               <h3>
