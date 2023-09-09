@@ -14,7 +14,7 @@ const initialState: ExercisesStateType = {
     error: null,
 }
 
-export const fetchExercises = createAsyncThunk('exercises/fetchExercises', async (): Promise<ExerciseType[] | null[] > => {
+export const fetchExercises = createAsyncThunk('exercises/fetchExercises', async (): Promise<ExerciseType[]> => {
     try{
         const response = await axios.request({...exerciseOptions, url: BASE_URL})
         console.log(response.data);

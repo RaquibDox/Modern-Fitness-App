@@ -9,13 +9,7 @@ import ExerciseVideos from '../components/ExerciseVideos'
 import SimilarExercises from '../components/SimilarExercises'
 import Loader from '../components/Loader'
 
-// import { useDispatch } from 'react-redux'
-import { useAppDispatch } from '../store/store'
-import { fetchExercises } from '../features/exercise/exerciseSlice'
-
 const ExerciseDetail = () => {
-
-  const dispatch = useAppDispatch();
 
   const [exerciseDetail, setExerciseDetail] = useState<ExerciseType>({
     bodyPart: "",
@@ -26,8 +20,8 @@ const ExerciseDetail = () => {
     target: ""
   });
   const [exerciseVideos, setExerciseVideos] = useState([]);
-  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
-  const [equipmentExercises, setEquipmentExercises] = useState([]);
+  const [targetMuscle, setTargetMuscle] = useState('');
+  const [equipment, setEquipment] = useState('[]');
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,7 +29,6 @@ const ExerciseDetail = () => {
 
   useEffect(() => {
     (async () => {
-      // console.log(id);
       
       const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
@@ -43,19 +36,14 @@ const ExerciseDetail = () => {
       const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
       // const exerciseDetailData = { bodyPart: "waist", equipment: "body weight", id: "0001", name: "3/4 sit-up", target: "abs" };
       setExerciseDetail(exerciseDetailData);
-      // console.log(exerciseDetailData);
 
       const exerciseVideoData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
-      // console.log("video data : ",exerciseVideoData);    
+
       setExerciseVideos(exerciseVideoData.contents);
 
-      const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
-      setTargetMuscleExercises(targetMuscleExercisesData)
-      // console.log("🚀 ~ file: ExerciseDetail.tsx:43 ~ targetMuscleExercisesData:", targetMuscleExercisesData)
-      
-      const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
-      setEquipmentExercises(equipmentExercisesData)
-      // console.log("🚀 ~ file: ExerciseDetail.tsx:47 ~ equipmentMuscleExercisesData:", equipmentExercisesData)
+      setTargetMuscle(exerciseDetailData.target)
+
+      setEquipment(exerciseDetailData.equipment)
       
     })()
   }, [id])
@@ -65,11 +53,6 @@ const ExerciseDetail = () => {
     
     return () => {setTimeout(() => { setIsLoading(false) }, 1000)};
   },[exerciseDetail])
-  
-  useEffect(() =>{
-    dispatch(fetchExercises())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
 
   return (
     isLoading ?
@@ -80,7 +63,7 @@ const ExerciseDetail = () => {
       <div>
         <Detail exerciseDetail={exerciseDetail}/>
         <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
-        <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises}/>
+        <SimilarExercises targetMuscle={targetMuscle} equipment={equipment}/>
       </div>
   )
 }

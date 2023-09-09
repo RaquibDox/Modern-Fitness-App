@@ -51,7 +51,7 @@ export type ExerciseType = {
   }
   
   export type ExercisesStateType = {
-    exercises: ExerciseType[] | null[],
+    exercises: ExerciseType[],
     status: "idle" | "loading" | "succeeded" | "failed",
     error : null | string
   }

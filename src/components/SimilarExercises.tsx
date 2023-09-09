@@ -4,7 +4,18 @@ import Loader from './Loader'
 
 import { ExerciseType } from '../utils/tsTypes'
 
-const SimilarExercises = ({targetMuscleExercises, equipmentExercises}: {targetMuscleExercises: ExerciseType[], equipmentExercises: ExerciseType[]}) => {
+import { useAppSelector } from '../store/store';
+import { getAllExercises } from '../features/exercise/exerciseSlice';
+
+const SimilarExercises = ({targetMuscle, equipment}: {targetMuscle: string, equipment: string}) => {
+
+  const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
+
+  const targetMuscleExercises = exercisesData.filter((exercise: ExerciseType) => 
+  exercise.target.toLowerCase().includes(targetMuscle))
+
+  const equipmentExercises = exercisesData.filter((exercise: ExerciseType) => 
+  exercise.equipment.toLowerCase().includes(equipment))
   return (
     <div className='mt-0 lg:mt-[100px] font-sans'>
       <h2 className='text-3xl sm:text-4xl font-semibold ml-8'>Exercises that target the same muscle group</h2>

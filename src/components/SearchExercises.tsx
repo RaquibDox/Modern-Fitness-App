@@ -3,6 +3,10 @@ import { exerciseOptions, fetchData } from '../utils/fetchData';
 import HomePageScrollbar from './HomePageScrollbar';
 import { ExerciseType, ParentProps } from '../utils/tsTypes';
 
+import { useAppSelector } from '../store/store';
+import { getAllExercises } from '../features/exercise/exerciseSlice';
+
+
 const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState<string>('');
   const [bodyParts, setBodyParts] = useState<string[]>([]);
@@ -20,18 +24,15 @@ const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBody
     fetchExercisesData();
   },[]);
 
-  const handleSearch = async () => {
+  const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
+  const handleSearch = () => {
     if(search){
-      // console.log("Fetching bodyParts data...");
       
-      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-
-      console.log("Fetching exercisesData data...",exercisesData);
-
-      const searchedExercises = exercisesData.filter((exercise: ExerciseType) => exercise.name.toLowerCase().includes(search)
-      || exercise.equipment.toLowerCase().includes(search)
-      || exercise.bodyPart.toLowerCase().includes(search)
-      || exercise.target.toLowerCase().includes(search)
+      const searchedExercises = exercisesData.filter((exercise: ExerciseType) => 
+        exercise.name.toLowerCase().includes(search)
+        || exercise.equipment.toLowerCase().includes(search)
+        || exercise.bodyPart.toLowerCase().includes(search)
+        || exercise.target.toLowerCase().includes(search)
       );
       
       setSearch('');

@@ -10,7 +10,6 @@ const Home: React.FC = () => {
   const [bodyPart, setBodyPart] = useState('all');
   const [exercises, setExercises] = useState<ExerciseType[]>([]);
 
-
   return (
     <>
       <div>

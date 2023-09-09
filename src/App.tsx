@@ -1,11 +1,23 @@
-// import {useState} from 'react'
+import {useEffect} from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import ExerciseDetail from './pages/ExerciseDetail'
 import Footer from './components/Footer'
 
+// import { useDispatch } from 'react-redux'
+import { useAppDispatch } from './store/store'
+import { fetchExercises } from './features/exercise/exerciseSlice'
+
 const App = () => {
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() =>{
+    dispatch(fetchExercises())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
   return (
     <>
       <Navbar />

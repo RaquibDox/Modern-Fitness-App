@@ -9,9 +9,6 @@ export const exerciseOptions: fetchOptionsType = {
     }
   };
 
-  // console.log(import.meta.env.VITE_RAPID_API_KEY);
-
-
   export const youtubeOptions: fetchOptionsType = {
     method: 'GET',
     headers: {
@@ -22,7 +19,7 @@ export const exerciseOptions: fetchOptionsType = {
   
 
 export const fetchData = async ( url: string, options: fetchOptionsType) => {
-    console.log("Fetching data....");
+    console.log("Fetching data for....", url);
     
     const response = await fetch(url, options);
     const data = await response.json();

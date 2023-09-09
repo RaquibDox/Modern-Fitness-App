@@ -3,10 +3,12 @@
 import React, { useState, useEffect} from 'react'
 import ReactPaginate from 'react-paginate'
 import { ParentPropsExercises, ExerciseType } from '../utils/tsTypes'
-import { exerciseOptions, fetchData } from '../utils/fetchData'
 import ExerciseCard from './ExerciseCard'
 
 import Loader from './Loader'
+
+import { useAppSelector } from '../store/store'
+import { getAllExercises } from '../features/exercise/exerciseSlice'
 
 const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises, bodyPart}) => {
 
@@ -24,20 +26,21 @@ const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises, bod
     setItemOffset(newOffset);
   };
 
+  const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
   useEffect(() => {
-    (async () => {
-      let exercisesData = [];
+    (() => {
+      let  exercisesToShow = [];
 
       if(bodyPart === 'all'){
-        exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+        exercisesToShow = exercisesData;
       } else {
-        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
+        exercisesToShow = exercisesData.filter((exercise: ExerciseType) => exercise.bodyPart.toLowerCase().includes(bodyPart));
       }
 
-      setExercises(exercisesData);
+      setExercises(exercisesToShow);
     })()
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bodyPart]);
+  }, [bodyPart, exercisesData]);
 
   return (
     <>
