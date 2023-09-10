@@ -30,6 +30,10 @@ export type ExerciseType = {
     }
   }
 
+  type LazyLoadTypes = "ondemand" | "progressive" | "anticipated";
+
+  export type SliderSettingsType = {dots: boolean, infinite: boolean, lazyLoad: LazyLoadTypes | undefined, speed: number, slidesToShow: number, slidesToScroll: number, responsive: { breakpoint: number, settings: { slidesToShow: number, slidesToScroll: number } }[] };
+
   type ThumbnailType =  {
     height: number, 
     url: string, 

@@ -1,10 +1,13 @@
-export function responsiveSettings(totalSlides: number, width: number, dotsVisible: boolean){
+import { SliderSettingsType } from "./tsTypes";
+
+export function responsiveSettings(totalSlides: number, width: number, dotsVisible: boolean): SliderSettingsType{
 
     const maxSlides = 10;
 
     return {
       dots: dotsVisible,
       infinite: false,
+      lazyLoad: "progressive",
       speed: 500,
       slidesToShow: slideToShowValue(maxSlides, totalSlides),
       slidesToScroll: slideToScrollValue(maxSlides, totalSlides),

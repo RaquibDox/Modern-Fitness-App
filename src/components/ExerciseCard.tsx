@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {memo} from 'react'
 import { ExerciseType } from '../utils/tsTypes'
 import { Link } from 'react-router-dom';
 
-const ExerciseCard = ({exercise}: {exercise: ExerciseType}) => {
+const ExerciseCard = memo(({exercise}: {exercise: ExerciseType}) => {
   // console.log(exercise.gifUrl);
   
   return (
@@ -23,6 +23,6 @@ const ExerciseCard = ({exercise}: {exercise: ExerciseType}) => {
         </h2>
     </Link>
   )
-}
+});
 
 export default ExerciseCard

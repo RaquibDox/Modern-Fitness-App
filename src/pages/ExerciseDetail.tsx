@@ -51,7 +51,7 @@ const ExerciseDetail = () => {
   useEffect(() =>{
     setIsLoading(true);
     
-    return () => {setTimeout(() => { setIsLoading(false) }, 1000)};
+    return () => {setTimeout(() => { setIsLoading(false) }, 100)};
   },[exerciseDetail])
 
   return (

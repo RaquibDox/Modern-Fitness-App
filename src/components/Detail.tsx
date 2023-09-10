@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { ExerciseType } from '../utils/tsTypes'
 import BodyPartImage from '../assets/icons/body-part.png'
 import TargetImage from '../assets/icons/target.png'
@@ -6,10 +6,10 @@ import EquipmentImage from '../assets/icons/equipment.png'
 
 import demoGif from '../assets/demo.gif'
 
-const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseType }) => {
+const Detail = memo(({exerciseDetail}: {exerciseDetail: ExerciseType }) => {
   const { bodyPart, equipment, gifUrl = demoGif, name, target} = exerciseDetail;
 
-  const InfoButtons = () => {
+  const InfoButtons = memo(() => {
 
     const extraDetail = [
       {
@@ -40,7 +40,7 @@ const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseType }) => {
     ))}
     </div>
     )
-  }
+  });
 
   return (
     <div className='flex gap-[60px] flex-col lg:flex-row p-5 items-center font-sans'>
@@ -61,6 +61,6 @@ const Detail = ({exerciseDetail}: {exerciseDetail: ExerciseType }) => {
       </div>
     </div>
   )
-}
+});
 
 export default Detail

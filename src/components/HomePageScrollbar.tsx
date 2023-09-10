@@ -2,10 +2,11 @@ import BodyPart from "./BodyPart";
 import { SetBodyPartType } from "../utils/tsTypes";
 import Slider from "react-slick";
 import { responsiveSettings } from "../utils/sliderSettings";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+import { memo } from "react";
 
-  const HorizontalScrollbar = ({data, bodyPart, setBodyPart}: {data: string[]; bodyPart: string; setBodyPart: SetBodyPartType}) => {
+  const HorizontalScrollbar = memo(({data, bodyPart, setBodyPart}: {data: string[]; bodyPart: string; setBodyPart: SetBodyPartType}) => {
 
   return (
     <div className="home-page-slider">
@@ -27,6 +28,6 @@ import "slick-carousel/slick/slick-theme.css";
       </Slider>
     </div>
   )
-}
+});
 
 export default HorizontalScrollbar
