@@ -3,16 +3,17 @@ import Slider from "react-slick";
 import { responsiveSettings } from "../utils/sliderSettings";
 
 import { ExerciseType } from "../utils/tsTypes";
+import { useMemo } from "react";
 
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-
-// const HorizontalScrollbar = ({data}: {data: string[] | {value?: string, id?: string}[]}) => {
   const SimilarScrollBar = ({data}: {data: ExerciseType[]}) => {
+
+    const calculateRespSettings = useMemo(() => {
+      return responsiveSettings(data.length, 500, false)
+    },[data.length])
 
   return (
     <div className= "details-slider">
-      <Slider {...responsiveSettings(data.length, 500, false)}>
+      <Slider {...calculateRespSettings}>
         
             {data.map((item: ExerciseType) => (
               <div

@@ -7,7 +7,7 @@ export function responsiveSettings(totalSlides: number, width: number, dotsVisib
     return {
       dots: dotsVisible,
       infinite: false,
-      lazyLoad: "progressive",
+      lazyLoad: "ondemand",
       speed: 500,
       slidesToShow: slideToShowValue(maxSlides, totalSlides),
       slidesToScroll: slideToScrollValue(maxSlides, totalSlides),
