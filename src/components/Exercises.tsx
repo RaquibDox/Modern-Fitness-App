@@ -9,10 +9,11 @@ import Loader from './Loader'
 
 import { useAppSelector } from '../store/store'
 import { getAllExercises } from '../features/exercise/exerciseSlice'
+import { getBodyPart } from '../features/bodypart/bodyPartSlice'
 
-const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises, bodyPart}) => {
+const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises}) => {
 
-  const itemsPerPage = 8;
+  const itemsPerPage = 8;//it changes the number of items per page for the react paginate
 
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
@@ -27,6 +28,7 @@ const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises, bod
   };
 
   const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
+  const bodyPart: string = useAppSelector(getBodyPart);
   useEffect(() => {
     (() => {
       let  exercisesToShow = [];

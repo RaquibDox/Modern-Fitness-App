@@ -6,7 +6,7 @@ import bodyPartSlice from "../features/bodypart/bodyPartSlice";
 const store = configureStore({
     reducer: {
         exercises: exerciseSlice,
-        bodyPart: bodyPartSlice
+        bodyParts: bodyPartSlice
     },
 })
 

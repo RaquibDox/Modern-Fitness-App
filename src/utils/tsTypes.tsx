@@ -65,13 +65,14 @@ export type ExerciseType = {
   }
 
   export type BodyPartInitialType = {
-    bodyPart: string[],
+    bodyParts: string[],
+    bodyPart: string,
     status: "idle" | "loading" | "succeeded" | "failed",
     error : null | string
   }
 
   export type BodyPartStateType = {
-    bodyPart: BodyPartInitialType
+    bodyParts: BodyPartInitialType
   }
 
 

@@ -7,7 +7,7 @@ import { getAllExercises } from '../features/exercise/exerciseSlice';
 import { getBodyParts } from '../features/bodypart/bodyPartSlice';
 
 
-const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBodyPart }) => {
+const SearchExercises: React.FC<ParentProps> = ({ setExercises }) => {
   const [search, setSearch] = useState<string>('');
   const [bodyParts, setBodyParts] = useState<string[]>([]);
 
@@ -53,8 +53,6 @@ const SearchExercises: React.FC<ParentProps> = ({setExercises, bodyPart, setBody
       <div className='relative w-full p-5'>
         <HomePageScrollbar 
           data={bodyParts}
-          bodyPart={bodyPart}
-          setBodyPart={setBodyPart}
         />
       </div>
     </div>

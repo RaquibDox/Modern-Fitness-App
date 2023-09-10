@@ -1,15 +1,14 @@
 import BodyPart from "./BodyPart";
-import { SetBodyPartType } from "../utils/tsTypes";
 import Slider from "react-slick";
 import { responsiveSettings } from "../utils/sliderSettings";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import { memo, useMemo } from "react";
 
-  const HorizontalScrollbar = memo(({data, bodyPart, setBodyPart}: {data: string[]; bodyPart: string; setBodyPart: SetBodyPartType}) => {
+  const HomePageScrollbar = memo(({data}: {data: string[]}) => {
 
   const calculateRespSettings = useMemo(() => {
-      return responsiveSettings(data.length, 500, false)
+      return responsiveSettings(data.length, 280, true)
   },[data.length])
 
 
@@ -24,8 +23,6 @@ import { memo, useMemo } from "react";
               >
                 <BodyPart 
                   item={item}
-                  bodyPart={bodyPart}
-                  setBodyPart={setBodyPart}
                 />
               </div>
             ))
@@ -35,4 +32,4 @@ import { memo, useMemo } from "react";
   )
 });
 
-export default HorizontalScrollbar
+export default HomePageScrollbar
