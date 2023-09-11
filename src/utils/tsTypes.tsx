@@ -7,21 +7,6 @@ export type ExerciseType = {
     target: string
   }
 
-  export type SetBodyPartType = (part: string) => void;
-  export type SetExercisesType = (newItems: ExerciseType[]) => void;
-  
-  export type ParentProps = {
-    setExercises: SetExercisesType,
-    bodyPart: string,
-    setBodyPart: SetBodyPartType
-  }
-
-  export type ParentPropsExercises = {
-    exercises: ExerciseType[],
-    setExercises: SetExercisesType,
-    bodyPart: string
-  }
-
   export type fetchOptionsType = {
     method: string,
     headers: {
@@ -53,6 +38,8 @@ export type ExerciseType = {
       viewCountText: string
     }
   }
+
+  // redux store types
   
   export type ExercisesStateType = {
     exercises: ExerciseType[],

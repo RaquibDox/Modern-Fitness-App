@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import HomePageScrollbar from './HomePageScrollbar';
-import { ParentProps } from '../utils/tsTypes';
 
 import { useAppSelector } from '../store/store';
 import { useAppDispatch } from '../store/store';
@@ -8,7 +7,7 @@ import { getBodyParts } from '../features/bodypart/bodyPartSlice';
 import { filterExercises } from '../features/exercise/exerciseSlice';
 
 
-const SearchExercises: React.FC<ParentProps> = () => {
+const SearchExercises = () => {
   const [search, setSearch] = useState<string>('');
   const [bodyParts, setBodyParts] = useState<string[]>([]);
 

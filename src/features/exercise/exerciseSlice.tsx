@@ -2,7 +2,7 @@
 import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { exerciseOptions, youtubeOptions } from '../../utils/fetchData';
+import { exerciseOptions } from '../../utils/fetchData';
 
 import { StateType, ExerciseType, ExercisesStateType } from "../../utils/tsTypes";
 

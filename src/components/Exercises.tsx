@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect} from 'react'
 import ReactPaginate from 'react-paginate'
-import { ParentPropsExercises, ExerciseType } from '../utils/tsTypes'
+import { ExerciseType } from '../utils/tsTypes'
 import ExerciseCard from './ExerciseCard'
 
 import Loader from './Loader'
@@ -14,7 +14,7 @@ import { getFilteredExercises } from '../features/exercise/exerciseSlice'
 import { setExercises } from '../features/exercise/exerciseSlice'
 import { getBodyPart } from '../features/bodypart/bodyPartSlice'
 
-const Exercises: React.FC<ParentPropsExercises> = () => {
+const Exercises = () => {
 
   const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
   const filteredExercises: ExerciseType[] = useAppSelector(getFilteredExercises);
