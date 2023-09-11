@@ -1,37 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import HomePageScrollbar from './HomePageScrollbar';
-import { ExerciseType, ParentProps } from '../utils/tsTypes';
+import { ParentProps } from '../utils/tsTypes';
 
 import { useAppSelector } from '../store/store';
-import { getAllExercises } from '../features/exercise/exerciseSlice';
+import { useAppDispatch } from '../store/store';
 import { getBodyParts } from '../features/bodypart/bodyPartSlice';
+import { filterExercises } from '../features/exercise/exerciseSlice';
 
 
-const SearchExercises: React.FC<ParentProps> = ({ setExercises }) => {
+const SearchExercises: React.FC<ParentProps> = () => {
   const [search, setSearch] = useState<string>('');
   const [bodyParts, setBodyParts] = useState<string[]>([]);
 
-  // console.log("🚀 ~ file: fetchData.tsx:9 ~ export  exerciseOptions.headers.'X-RapidAPI-Key':", exerciseOptions.headers)
+  const dispatch = useAppDispatch()
 
   const bodyPartsData: string[] = useAppSelector(getBodyParts);
   useEffect(() => {
       setBodyParts(['all', ...bodyPartsData]);
   },[bodyPartsData]);
 
-  const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
   const handleSearch = () => {
+    
     if(search){
-      
-      const searchedExercises = exercisesData.filter((exercise: ExerciseType) => 
-        exercise.name.toLowerCase().includes(search)
-        || exercise.equipment.toLowerCase().includes(search)
-        || exercise.bodyPart.toLowerCase().includes(search)
-        || exercise.target.toLowerCase().includes(search)
-      );
-      
+      dispatch(filterExercises({search: search}));     
       setSearch('');
-      setExercises(searchedExercises);
-      
     }
   }
 

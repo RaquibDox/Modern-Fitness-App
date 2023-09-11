@@ -8,26 +8,33 @@ import ExerciseCard from './ExerciseCard'
 import Loader from './Loader'
 
 import { useAppSelector } from '../store/store'
+import { useAppDispatch } from '../store/store'
 import { getAllExercises } from '../features/exercise/exerciseSlice'
+import { getFilteredExercises } from '../features/exercise/exerciseSlice'
+import { setExercises } from '../features/exercise/exerciseSlice'
 import { getBodyPart } from '../features/bodypart/bodyPartSlice'
 
-const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises}) => {
+const Exercises: React.FC<ParentPropsExercises> = () => {
+
+  const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
+  const filteredExercises: ExerciseType[] = useAppSelector(getFilteredExercises);
+
+  const dispatch = useAppDispatch();
 
   const itemsPerPage = 8;//it changes the number of items per page for the react paginate
 
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = exercises.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(exercises.length / itemsPerPage);
+  const currentItems = filteredExercises.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(filteredExercises.length / itemsPerPage);
 
   const handlePageClick = (event: any) => {
     // console.log(event.selected);  
     window.scrollTo({ top: 1800, behavior: 'smooth'})
-    const newOffset = (event.selected * itemsPerPage) % exercises.length;
+    const newOffset = (event.selected * itemsPerPage) % filteredExercises.length;
     setItemOffset(newOffset);
   };
 
-  const exercisesData: ExerciseType[] = useAppSelector(getAllExercises);
   const bodyPart: string = useAppSelector(getBodyPart);
   useEffect(() => {
     (() => {
@@ -39,10 +46,10 @@ const Exercises: React.FC<ParentPropsExercises> = ({exercises, setExercises}) =>
         exercisesToShow = exercisesData.filter((exercise: ExerciseType) => exercise.bodyPart.toLowerCase().includes(bodyPart));
       }
 
-      setExercises(exercisesToShow);
+      dispatch(setExercises({exercises: exercisesToShow}));
     })()
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bodyPart, exercisesData]);
+  }, [bodyPart]);
 
   return (
     <>
