@@ -17,13 +17,6 @@ body {
   width: 0px;
 }
 
-/*
-.react-horizontal-scrolling-menu--wrapper {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-} */
-
 .detail-image {
   width: 729px;
   height: 742px;
@@ -97,7 +90,7 @@ body {
   width: var(--arrow-size);
   height: var(--arrow-size);
   z-index: 10;
-  background-image: url("./assets/icons/left-arrow1.svg");
+  background-image: url("/assets/icons/left-arrow1.svg");
   background-repeat: no-repeat;
   background-size: var(--arrow-size) var(--arrow-size);
 }
@@ -109,7 +102,7 @@ body {
   width: var(--arrow-size);
   height: var(--arrow-size);
   z-index: 10;
-  background-image: url("./assets/icons/right-arrow1.svg");
+  background-image: url("/assets/icons/right-arrow1.svg");
   background-repeat: no-repeat;
   background-size: var(--arrow-size) var(--arrow-size);
 }

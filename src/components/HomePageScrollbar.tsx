@@ -11,7 +11,6 @@ import { memo, useMemo } from "react";
       return responsiveSettings(data.length, 280, true)
   },[data.length])
 
-
   return (
     <div className="home-page-slider">
       <Slider {...calculateRespSettings}>

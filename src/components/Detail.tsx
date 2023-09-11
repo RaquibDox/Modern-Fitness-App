@@ -1,27 +1,22 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { ExerciseType } from '../utils/tsTypes'
-import BodyPartImage from '../assets/icons/body-part.png'
-import TargetImage from '../assets/icons/target.png'
-import EquipmentImage from '../assets/icons/equipment.png'
-
-import demoGif from '../assets/demo.gif'
 
 const Detail = memo(({exerciseDetail}: {exerciseDetail: ExerciseType }) => {
-  const { bodyPart, equipment, gifUrl = demoGif, name, target} = exerciseDetail;
+  const { bodyPart, equipment, gifUrl , name, target} = exerciseDetail;
 
   const InfoButtons = memo(() => {
 
     const extraDetail = [
       {
-        icon: BodyPartImage,
+        icon: '../assets/icons/body-part.png',
         name: bodyPart
       },
       {
-        icon: TargetImage,
+        icon: '../assets/icons/target.png',
         name: target
       },
       {
-        icon: EquipmentImage,
+        icon: '../assets/icons/equipment.png',
         name: equipment
       }
     ]
