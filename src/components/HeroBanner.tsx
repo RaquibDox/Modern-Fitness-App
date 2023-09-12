@@ -18,7 +18,7 @@ const HeroBanner = () => {
       <p className='relative top-[6rem] font-semibold text-font-accent-light-color opacity-10 hidden desktop:block text-[200px] -z-50'>
         Exercise
       </p>
-      <img src='../assets/images/banner.png' alt='banner' className="hero-banner-img hidden desktop:block"/>
+      <img src='../assets/images/banner.png' alt='banner' className="hero-banner-img hidden desktop:block absolute right-10 top-0 w-[700px] h-[900px] mt-[-330px]"/>
     </div>
   )
 }

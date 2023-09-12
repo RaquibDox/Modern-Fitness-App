@@ -38,7 +38,7 @@ const SearchExercises = () => {
         onChange={(e) => {setSearch(e.target.value.toLowerCase())}}
         placeholder='Search Exercises'
         />
-        <button className='m-0 search-btn bg-accent-light-color-1 text-white w-[90px] sm:w-[175px] text-lg sm:text-xl h-[46px] sm:h-[56px] rounded-e-lg border-none outline-none font-semibold'
+        <button className='m-0 search-btn bg-accent-light-color-1 text-white w-[90px] sm:w-[175px] text-lg sm:text-xl h-[46px] sm:h-[56px] rounded-e-lg border-none outline-none font-semibold hover:bg-[#fc4846]'
         onClick={handleSearch}>Search</button>
       </div>
       <div className='relative w-full p-5'>

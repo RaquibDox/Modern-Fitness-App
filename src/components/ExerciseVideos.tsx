@@ -15,16 +15,16 @@ const ExerciseVideos = ({ exerciseVideos, name }: {exerciseVideos: VideoType[], 
       
       :
       
-      <div className="flex justify-start flex-wrap items-center flex-col lg:flex-row gap-0 lg:gap-[10px]">
+      <div className="flex justify-center flex-wrap items-center flex-col lg:flex-row gap-2 lg:gap-[20px]">
         {exerciseVideos?.slice(0, 6).map((item: VideoType, index: number) =>(
           <a 
             key={index}
-            className='exercise-video'
+            className='exercise-video video-thumbnail-w h-[340px] flex flex-col gap-4 no-underline'
             href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
             target="_blank"
             rel="noreferrer"
           >
-            <img src={item.video.thumbnails[0].url} alt={item.video.title} />
+            <img src={item.video.thumbnails[0].url} alt={item.video.title} className='w-auto h-auto'/>
             <div>
               <h2 className='text-xl font-semibold text-ellipsis line-clamp-2'>
                 {item.video.title}

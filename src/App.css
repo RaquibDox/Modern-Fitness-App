@@ -22,34 +22,6 @@ body {
   height: 742px;
 }
 
-.hero-banner-img {
-  position: absolute;
-  right: 40px;
-  top: 0px;
-  width: 700px;
-  height: 900px;
-  margin-top: -330px;
-}
-
-.exercise-card {
-  width: min(80vw, 400px);
-  height: 445px;
-  background: #fff;
-  border-top: 4px solid #ff2625;
-  border-bottom-left-radius: 20px;
-  text-decoration: none;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  padding-bottom: 10px;
-  transform: scale(1, 1);
-  transition: 0.3s all ease-in-out;
-}
-
-.exercise-card img {
-  height: 326px;
-}
-
 .bodyPart-card {
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
@@ -58,21 +30,6 @@ body {
 .exercise-card:hover,
 .bodyPart-card:hover {
   transform: scale(1.1, 1.1);
-}
-
-.search-btn:hover {
-  /* color: #ff2625 !important; */
-  /* border: 1px solid #ff2625 !important; */
-  background-color: #fc4846;
-}
-
-.exercise-video {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 387px;
-  height: 381px;
-  text-decoration: none;
 }
 
 /* home page slider */
@@ -143,6 +100,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
   margin-bottom: 5rem;
   font-size: 1.2rem;
   gap: 5px;
@@ -187,17 +145,8 @@ body {
     height: max(50vw, 300px);
   }
 
-  .react-horizontal-scrolling-menu--scroll-container {
-    width: 500px;
-  }
-
   .exercise-card {
     width: 320px;
-  }
-
-  .exercise-video {
-    width: 320px;
-    height: 300px;
   }
 }
 
@@ -217,6 +166,10 @@ body {
 }
 
 @media screen and (max-width: 400px) {
+  .exercise-video {
+    height: auto;
+    margin-bottom: 1rem;
+  }
   .exercise-card {
     width: 280px;
   }

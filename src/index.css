@@ -3,16 +3,25 @@
 @tailwind utilities;
 
 @layer components {
-    .button {
-        @apply px-4 py-2 font-medium tracking-wide rounded-md shadow-md bg-accent-light-color-2;
-    }
-    .button--action {
-        @apply bg-indigo-300 text-indigo-800 hover:bg-indigo-200;
-    } 
-    .button--success {
-        @apply bg-green-300 text-green-800 hover:bg-green-200;
-    }
-    .button--warning {
-        @apply bg-red-300 text-red-800 hover:bg-red-200;
-    }
+  .button {
+    @apply px-4 py-2 font-medium tracking-wide rounded-md shadow-md bg-accent-light-color-2;
+  }
+  .button--action {
+    @apply bg-indigo-300 text-indigo-800 hover:bg-indigo-200;
+  }
+  .button--success {
+    @apply bg-green-300 text-green-800 hover:bg-green-200;
+  }
+  .button--warning {
+    @apply bg-red-300 text-red-800 hover:bg-red-200;
+  }
+}
+
+@layer utilities {
+  .exercise-card-w {
+    width: min(80vw, 400px);
+  }
+  .video-thumbnail-w {
+    width: min(90%, 387px);
+  }
 }
