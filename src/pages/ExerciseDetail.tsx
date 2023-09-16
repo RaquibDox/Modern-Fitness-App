@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom'
 
 import { ExerciseType } from '../utils/tsTypes'
 import { fetchData, exerciseOptions, youtubeOptions } from '../utils/fetchData'
-import Detail from '../components/Detail'
-import ExerciseVideos from '../components/ExerciseVideos'
-import SimilarExercises from '../components/SimilarExercises'
+import Detail from '../components/Exercise-details-components/Detail'
+import ExerciseVideos from '../components/Exercise-details-components/ExerciseVideos'
+import SimilarExercises from '../components/Exercise-details-components/SimilarExercises'
 import Loader from '../components/Loader'
 
 const ExerciseDetail = () => {

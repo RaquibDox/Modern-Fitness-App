@@ -1,9 +1,9 @@
 import {useEffect} from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Navbar from './components/Navbar'
+import Navbar from './components/common-components/Navbar'
 import Home from './pages/Home'
 import ExerciseDetail from './pages/ExerciseDetail'
-import Footer from './components/Footer'
+import Footer from './components/common-components/Footer'
 
 // import { useDispatch } from 'react-redux'
 import { useAppDispatch } from './store/store'

@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { ExerciseType } from '../utils/tsTypes'
+import { ExerciseType } from '../../utils/tsTypes'
 
 const Detail = memo(({exerciseDetail}: {exerciseDetail: ExerciseType }) => {
   const { bodyPart, equipment, gifUrl , name, target} = exerciseDetail;

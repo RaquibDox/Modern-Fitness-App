@@ -1,7 +1,7 @@
-import { useAppDispatch } from '../store/store';
-import { useAppSelector } from '../store/store';
-import { changeBodyPart } from '../features/bodypart/bodyPartSlice';
-import { getBodyPart } from '../features/bodypart/bodyPartSlice';
+import { useAppDispatch } from '../../store/store';
+import { useAppSelector } from '../../store/store';
+import { changeBodyPart } from '../../features/bodypart/bodyPartSlice';
+import { getBodyPart } from '../../features/bodypart/bodyPartSlice';
 
 const BodyPart = ({item}: {item: string}) => {
 

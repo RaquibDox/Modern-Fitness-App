@@ -1,8 +1,8 @@
-import ExerciseCard from "./ExerciseCard";
+import ExerciseCard from "../ExerciseCard";
 import Slider from "react-slick";
-import { responsiveSettings } from "../utils/sliderSettings";
+import { responsiveSettings } from "../../utils/sliderSettings";
 
-import { ExerciseType } from "../utils/tsTypes";
+import { ExerciseType } from "../../utils/tsTypes";
 import { useMemo } from "react";
 
   const SimilarScrollBar = ({data}: {data: ExerciseType[]}) => {

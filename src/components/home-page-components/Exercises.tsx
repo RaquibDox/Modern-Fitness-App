@@ -2,17 +2,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect} from 'react'
 import ReactPaginate from 'react-paginate'
-import { ExerciseType } from '../utils/tsTypes'
-import ExerciseCard from './ExerciseCard'
+import { ExerciseType } from '../../utils/tsTypes'
+import ExerciseCard from '../ExerciseCard'
 
-import Loader from './Loader'
+import Loader from '../Loader'
 
-import { useAppSelector } from '../store/store'
-import { useAppDispatch } from '../store/store'
-import { getAllExercises } from '../features/exercise/exerciseSlice'
-import { getFilteredExercises } from '../features/exercise/exerciseSlice'
-import { setExercises } from '../features/exercise/exerciseSlice'
-import { getBodyPart } from '../features/bodypart/bodyPartSlice'
+import { useAppSelector } from '../../store/store'
+import { useAppDispatch } from '../../store/store'
+import { getAllExercises } from '../../features/exercise/exerciseSlice'
+import { getFilteredExercises } from '../../features/exercise/exerciseSlice'
+import { setExercises } from '../../features/exercise/exerciseSlice'
+import { getBodyPart } from '../../features/bodypart/bodyPartSlice'
 
 const Exercises = () => {
 

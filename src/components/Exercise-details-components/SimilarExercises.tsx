@@ -1,11 +1,11 @@
 import React from 'react'
 import SimilarScrollBar from './SimilarScrollBar'
-import Loader from './Loader'
+import Loader from '../Loader'
 
-import { ExerciseType } from '../utils/tsTypes'
+import { ExerciseType } from '../../utils/tsTypes'
 
-import { useAppSelector } from '../store/store';
-import { getAllExercises } from '../features/exercise/exerciseSlice';
+import { useAppSelector } from '../../store/store';
+import { getAllExercises } from '../../features/exercise/exerciseSlice';
 
 const SimilarExercises = ({targetMuscle, equipment}: {targetMuscle: string, equipment: string}) => {
 

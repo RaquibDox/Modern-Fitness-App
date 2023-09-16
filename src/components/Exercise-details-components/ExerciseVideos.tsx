@@ -1,6 +1,6 @@
 import React from 'react'
-import { VideoType } from '../utils/tsTypes';
-import Loader from './Loader';
+import { VideoType } from '../../utils/tsTypes';
+import Loader from '../Loader';
 
 const ExerciseVideos = ({ exerciseVideos, name }: {exerciseVideos: VideoType[], name: string}) => {
   

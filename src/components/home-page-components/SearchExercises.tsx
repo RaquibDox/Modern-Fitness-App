@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import HomePageScrollbar from './HomePageScrollbar';
 
-import { useAppSelector } from '../store/store';
-import { useAppDispatch } from '../store/store';
-import { getBodyParts } from '../features/bodypart/bodyPartSlice';
-import { filterExercises } from '../features/exercise/exerciseSlice';
+import { useAppSelector } from '../../store/store';
+import { useAppDispatch } from '../../store/store';
+import { getBodyParts } from '../../features/bodypart/bodyPartSlice';
+import { filterExercises } from '../../features/exercise/exerciseSlice';
 
 
 const SearchExercises = () => {
