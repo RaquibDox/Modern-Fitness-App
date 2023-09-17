@@ -1,5 +1,5 @@
 :root {
-  --arrow-size: 60px;
+  --arrow-size: 50px;
 }
 
 body {
@@ -52,6 +52,10 @@ body {
   background-size: var(--arrow-size) var(--arrow-size);
 }
 
+.slick-arrow.slick-prev:hover {
+  --arrow-size: 60px;
+}
+
 .slick-arrow.slick-next {
   text-indent: 100%;
   white-space: nowrap;
@@ -62,6 +66,10 @@ body {
   background-image: url("/assets/icons/right_arrow.svg");
   background-repeat: no-repeat;
   background-size: var(--arrow-size) var(--arrow-size);
+}
+
+.slick-arrow.slick-next:hover {
+  --arrow-size: 60px;
 }
 
 .home-page-slider .slick-slide.slick-active {
@@ -90,6 +98,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.details-slider .slick-arrow.slick-prev {
+  transform: translate(0, -60px);
+}
+
+.details-slider .slick-arrow.slick-next {
+  transform: translate(0, -60px);
 }
 
 /* pagination styling */

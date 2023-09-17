@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import HomePageScrollbar from './HomePageScrollbar';
+import React, { useState } from 'react'
 
-import { useAppSelector } from '../../store/store';
 import { useAppDispatch } from '../../store/store';
-import { getBodyParts } from '../../features/bodypart/bodyPartSlice';
 import { filterExercises } from '../../features/exercise/exerciseSlice';
 
 
 const SearchExercises = () => {
   const [search, setSearch] = useState<string>('');
-  const [bodyParts, setBodyParts] = useState<string[]>([]);
 
   const dispatch = useAppDispatch()
-
-  const bodyPartsData: string[] = useAppSelector(getBodyParts);
-  useEffect(() => {
-      setBodyParts(['all', ...bodyPartsData]);
-  },[bodyPartsData]);
 
   const handleSearch = () => {
     
     if(search){
       dispatch(filterExercises({search: search}));     
       setSearch('');
+      window.scrollTo({top: 1800, left: 100, behavior: 'smooth'});
     }
   }
 
@@ -40,11 +32,6 @@ const SearchExercises = () => {
         />
         <button className='m-0 search-btn bg-accent-light-color-1 text-white w-[90px] sm:w-[175px] text-lg sm:text-xl h-[46px] sm:h-[56px] rounded-e-lg border-none outline-none font-semibold hover:bg-[#fc4846]'
         onClick={handleSearch}>Search</button>
-      </div>
-      <div className='relative w-full p-5'>
-        <HomePageScrollbar 
-          data={bodyParts}
-        />
       </div>
     </div>
   )

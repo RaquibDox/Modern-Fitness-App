@@ -11,7 +11,7 @@ const ExerciseCard = memo(({exercise}: {exercise: ExerciseType}) => {
     >
         <img src={exercise.gifUrl} alt={exercise.name} loading='lazy' className='h-[326px] relative -top-3 opacity-100'/>
         <div className='flex flex-row'>
-            <button className='ml-5 px-2 py-1 text-white bg-secondary-light-color text-sm rounded-2xl capitalize font-sans'>
+            <button className='ml-5 px-2 py-1 text-white bg-accent-light-color-1 text-sm rounded-2xl capitalize font-sans'>
               {exercise.bodyPart}
             </button>
             <button className='ml-5 px-2 py-1 text-white bg-accent-light-color-3 text-sm rounded-2xl capitalize font-sans'>
