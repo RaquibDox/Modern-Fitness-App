@@ -1,13 +1,14 @@
 import { SliderSettingsType } from "./tsTypes";
+import { LazyLoadTypes } from "react-slick";
 
-export function responsiveSettings(totalSlides: number, width: number, dotsVisible: boolean): SliderSettingsType{
+export function responsiveSettings(totalSlides: number, width: number, dotsVisible: boolean, lazyLoad: LazyLoadTypes): SliderSettingsType{
 
     const maxSlides = 10;
 
     return {
       dots: dotsVisible,
       infinite: false,
-      lazyLoad: "ondemand",
+      lazyLoad: lazyLoad,
       speed: 500,
       slidesToShow: slideToShowValue(maxSlides, totalSlides),
       slidesToScroll: slideToScrollValue(maxSlides, totalSlides),

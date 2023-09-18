@@ -18,7 +18,7 @@ import { useAppSelector } from "../../store/store";
 
 
   const calculateRespSettings = useMemo(() => {
-      return responsiveSettings(bodyParts.length, 280, true)
+      return responsiveSettings(bodyParts.length, 280, true, "progressive")
   },[bodyParts.length])
 
   return (

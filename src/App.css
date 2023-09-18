@@ -2,6 +2,10 @@
   --arrow-size: 50px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Josefin Sans";
   background-color: #fffafb;

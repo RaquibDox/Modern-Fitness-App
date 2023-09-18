@@ -8,7 +8,7 @@ import { useMemo } from "react";
   const SimilarScrollBar = ({data}: {data: ExerciseType[]}) => {
 
     const calculateRespSettings = useMemo(() => {
-      return responsiveSettings(data.length, 500, false)
+      return responsiveSettings(data.length, 500, false, "ondemand")
     },[data.length])
 
   return (

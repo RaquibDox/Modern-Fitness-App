@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { useAppDispatch } from '../../store/store';
 import { filterExercises } from '../../features/exercise/exerciseSlice';
@@ -8,6 +8,12 @@ const SearchExercises = () => {
   const [search, setSearch] = useState<string>('');
 
   const dispatch = useAppDispatch()
+
+  const handleKeyPress = (event: { key: string; }) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  }
 
   const handleSearch = () => {
     
@@ -29,6 +35,8 @@ const SearchExercises = () => {
         value={search}
         onChange={(e) => {setSearch(e.target.value.toLowerCase())}}
         placeholder='Search Exercises'
+        onKeyDown={handleKeyPress}
+        
         />
         <button className='m-0 search-btn bg-accent-light-color-1 text-white w-[90px] sm:w-[175px] text-lg sm:text-xl h-[46px] sm:h-[56px] rounded-e-lg border-none outline-none font-semibold hover:bg-[#fc4846]'
         onClick={handleSearch}>Search</button>

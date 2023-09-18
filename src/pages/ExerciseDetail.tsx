@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React,{ useEffect, useState} from 'react'
+import { useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ExerciseType } from '../utils/tsTypes'
@@ -28,6 +28,8 @@ const ExerciseDetail = () => {
   const {id} = useParams();
 
   useEffect(() => {
+    console.log(id);
+    
     (async () => {
       
       const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
@@ -39,11 +41,13 @@ const ExerciseDetail = () => {
 
       const exerciseVideoData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
 
+      window.scrollTo({top: 0, behavior: 'smooth'});
+
       setExerciseVideos(exerciseVideoData.contents);
 
-      setTargetMuscle(exerciseDetailData.target)
+      setTargetMuscle(exerciseDetailData.target);
 
-      setEquipment(exerciseDetailData.equipment)
+      setEquipment(exerciseDetailData.equipment);
       
     })()
   }, [id])
