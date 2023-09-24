@@ -104,12 +104,13 @@ body {
   align-items: center;
 }
 
-.details-slider .slick-arrow.slick-prev {
+.details-slider .slick-arrow {
   transform: translate(0, -60px);
 }
 
-.details-slider .slick-arrow.slick-next {
-  transform: translate(0, -60px);
+.details-slider .slick-arrow:hover {
+  --arrow-size: 60px;
+  transform: translate(0, -65px);
 }
 
 /* pagination styling */

@@ -27,10 +27,14 @@ const ExerciseDetail = () => {
 
   const {id} = useParams();
 
+  window.scrollTo({top: 0, behavior: 'smooth'});
+
   useEffect(() => {
     console.log(id);
     
     (async () => {
+
+      window.scrollTo({top: 0, behavior: 'smooth'});
       
       const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
@@ -40,8 +44,6 @@ const ExerciseDetail = () => {
       setExerciseDetail(exerciseDetailData);
 
       const exerciseVideoData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
-
-      window.scrollTo({top: 0, behavior: 'smooth'});
 
       setExerciseVideos(exerciseVideoData.contents);
 
@@ -60,7 +62,7 @@ const ExerciseDetail = () => {
 
   return (
     isLoading ?
-      <div className='h-screen flex items-center'>
+      <div className='flex items-center h-screen'>
         <Loader />
       </div>
       :

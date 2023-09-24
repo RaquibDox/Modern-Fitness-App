@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect} from 'react'
+import { useState, useEffect} from 'react'
 import ReactPaginate from 'react-paginate'
 import { ExerciseType } from '../../utils/tsTypes'
 import ExerciseCard from '../ExerciseCard'
@@ -83,7 +83,7 @@ function Items({ currentItems }: {currentItems: ExerciseType[]}) {
       <div id="exercises"
       className='mt-12 lg:mt-[110px] p-5'
       >
-        <h3 className='mb-12 font-sans text-4xl font-medium'>
+        <h3 className='mb-12 font-sans text-4xl font-medium text-center'>
           Showing Results
         </h3>
         <div className='flex flex-row flex-wrap justify-center gap-12 lg:gap-[110px]'>
