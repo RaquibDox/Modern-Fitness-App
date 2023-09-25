@@ -1,16 +1,18 @@
 import { useState } from 'react'
 
-import { useAppDispatch } from '../../store/store';
+import { useAppDispatch, useAppSelector } from '../../store/store';
 import { filterExercises } from '../../features/exercise/exerciseSlice';
 
-import data from "../../utils/MOCK_DATA.json";
+import { getSearchTerms } from '../../features/searchTerm/searchTermSlice';
 
 const SearchExercises = () => {
   const [search, setSearch] = useState<string>('');
   const [searchOnFocused, setSearchOnFocused] = useState(false);
   const [mouseOverDropDown, setMouseOverDropDown] = useState(false);
 
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
+
+  const searchTerms: string[] = useAppSelector(getSearchTerms);
 
   const handleKeyPress = (event: { key: string; }) => {
     if (event.key === 'Enter') {
@@ -56,16 +58,16 @@ const SearchExercises = () => {
         onMouseOver={() => {setMouseOverDropDown(true)}}       
         onMouseOut={() => {setMouseOverDropDown(false)}}       
         className={`absolute top-[46px] sm:top-[56px] z-[1000]  bg-white flex flex-col border-2 empty:border-none search-box-w sm:search-box-sm-w rounded-lg ${searchOnFocused ? `block` : `hidden`}`}>
-          {data
+          {searchTerms
           .filter((item) => 
           search &&
-          item.term.toLowerCase()
+          item.toLowerCase()
           .startsWith(search.toLowerCase()) &&
-          item.term.toLowerCase() !== search.toLowerCase())
+          item.toLowerCase() !== search.toLowerCase())
           .slice(0,5)
           .map((item) => 
-          <div key={item.term} onClick={()=> handleSearch(item.term)} className='m-1 text-xl text-left capitalize cursor-pointer'>
-            {item.term}
+          <div key={item} onClick={()=> handleSearch(item)} className='m-1 text-xl text-left capitalize cursor-pointer'>
+            {item}
           </div>)}
         </div>
       </div>

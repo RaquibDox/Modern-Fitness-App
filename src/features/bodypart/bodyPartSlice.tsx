@@ -18,7 +18,7 @@ const initialState: BodyPartInitialType = {
 export const fetchBodyParts = createAsyncThunk('bodyParts/fetchBodyParts', async (): Promise<string[]> => {
     try{
         const response = await axios.request({...exerciseOptions, url: BASE_URL})
-        console.log(response.data);
+        console.log("Fetching BodyParts data...");
         return [...response.data];
     }catch(err){
         console.error(err);

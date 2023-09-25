@@ -63,4 +63,14 @@ export type ExerciseType = {
     bodyParts: BodyPartInitialType
   }
 
+  export type SearchInitialType = {
+    searchTerms: string[],
+    status: "idle" | "loading" | "succeeded" | "failed",
+    error : null | string
+  }
+
+  export type SearchStateType = {
+    searchTerms: SearchInitialType
+  }
+
 

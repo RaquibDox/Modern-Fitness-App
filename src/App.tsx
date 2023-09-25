@@ -6,23 +6,30 @@ import ExerciseDetail from './pages/ExerciseDetail'
 import Footer from './components/common-components/Footer'
 
 // import { useDispatch } from 'react-redux'
-import { useAppDispatch } from './store/store'
+import { useAppDispatch, useAppSelector } from './store/store'
 import { fetchExercises } from './features/exercise/exerciseSlice'
-import { fetchBodyParts } from './features/bodypart/bodyPartSlice'
+import { fetchBodyParts, getBodyParts } from './features/bodypart/bodyPartSlice'
+import { fetchSearchTerms, addToSearchTerms } from './features/searchTerm/searchTermSlice'
 
 const App = () => {
 
   const dispatch = useAppDispatch();
+  const bodyPartsData: string[] = useAppSelector(getBodyParts);
 
   useEffect(() =>{
-    (async () =>{
+    (() =>{
       dispatch(fetchExercises());
-      await dispatch(fetchBodyParts());
-      // dispatch(fetchSearchTerms());
+      dispatch(fetchBodyParts());
+      dispatch(fetchSearchTerms());
     })()
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+
+  useEffect(()=>{
+    dispatch(addToSearchTerms({extraTerms: bodyPartsData}))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[bodyPartsData])
 
   return (
     <>

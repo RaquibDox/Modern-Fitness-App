@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import exerciseSlice from "../features/exercise/exerciseSlice";
 import { useDispatch, useSelector, TypedUseSelectorHook} from 'react-redux'
 import bodyPartSlice from "../features/bodypart/bodyPartSlice";
+import searchTermSlice from "../features/searchTerm/searchTermSlice";
 
 const store = configureStore({
     reducer: {
         exercises: exerciseSlice,
-        bodyParts: bodyPartSlice
+        bodyParts: bodyPartSlice,
+        searchTerms: searchTermSlice
     },
 })
 
