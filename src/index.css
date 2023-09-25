@@ -24,4 +24,12 @@
   .video-thumbnail-w {
     width: min(90%, 387px);
   }
+
+  .search-box-w {
+    width: calc(60vw + 90px);
+  }
+
+  .search-box-sm-w {
+    width: calc(60vw + 175px);
+  }
 }

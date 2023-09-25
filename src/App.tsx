@@ -15,8 +15,12 @@ const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() =>{
-    dispatch(fetchExercises());
-    dispatch(fetchBodyParts());
+    (async () =>{
+      dispatch(fetchExercises());
+      await dispatch(fetchBodyParts());
+      // dispatch(fetchSearchTerms());
+    })()
+    
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
