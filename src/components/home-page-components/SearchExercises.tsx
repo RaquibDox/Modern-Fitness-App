@@ -8,7 +8,6 @@ import { getSearchTerms } from '../../features/searchTerm/searchTermSlice';
 const SearchExercises = () => {
   const [search, setSearch] = useState<string>('');
   const [searchOnFocused, setSearchOnFocused] = useState(false);
-  const [mouseOverDropDown, setMouseOverDropDown] = useState(false);
 
   const dispatch = useAppDispatch();
 
@@ -25,14 +24,14 @@ const SearchExercises = () => {
     if(searchedTerm){
       dispatch(filterExercises({search: searchedTerm}));     
       setSearch('');
-      setMouseOverDropDown(false);
       window.scrollTo({top: 1800, left: 100, behavior: 'smooth'});
     }
   }
 
-  const handleBlur = () => {
-    if(!mouseOverDropDown)
-    setSearchOnFocused(false);
+  const handleBlur =  () => {
+    setTimeout(function(){
+      setSearchOnFocused(false);
+   }, 120);
   }
 
   return (
@@ -54,9 +53,7 @@ const SearchExercises = () => {
           <button className='m-0 search-btn bg-accent-light-color-1 text-white w-[90px] sm:w-[175px] text-lg sm:text-xl h-[46px] sm:h-[56px] rounded-e-lg border-none outline-none font-semibold hover:bg-[#fc4846]'
           onClick={()=>handleSearch(search)}>Search</button>
         </div>
-        <div 
-        onMouseOver={() => {setMouseOverDropDown(true)}}       
-        onMouseOut={() => {setMouseOverDropDown(false)}}       
+        <div       
         className={`absolute top-[46px] sm:top-[56px] z-[1000]  bg-white flex flex-col border-2 empty:border-none search-box-w sm:search-box-sm-w rounded-lg ${searchOnFocused ? `block` : `hidden`}`}>
           {searchTerms
           .filter((item) => 
