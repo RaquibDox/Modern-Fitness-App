@@ -8,6 +8,7 @@ import useOutsideClick from "../../hooks/useOutsideClick";
 
 const SearchExercises = () => {
   const wrapperRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const checkOutsideClick = useOutsideClick(wrapperRef);
 
   const [search, setSearch] = useState<string>("");
@@ -25,9 +26,13 @@ const SearchExercises = () => {
 
   const handleSearch = (searchedTerm: string) => {
     if (searchedTerm) {
+      setTimeout(function () {
+        window.scroll({ top: 1800, left: 100, behavior: "smooth" });
+      }, 100);
       dispatch(filterExercises({ search: searchedTerm }));
       setSearch("");
-      window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
+    } else {
+      if (inputRef.current) inputRef.current.focus();
     }
   };
 
@@ -44,6 +49,7 @@ const SearchExercises = () => {
       <div className="relative">
         <div className="flex flex-nowrap">
           <input
+            ref={inputRef}
             className="px-4 h-[46px] sm:h-[56px] text-lg sm:text-xl desktop:text-2xl font-semibold rounded-s-lg w-[60vw] bg-white border-2 outline-none"
             type="text"
             value={search}
