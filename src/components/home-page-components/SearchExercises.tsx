@@ -31,7 +31,7 @@ const SearchExercises = () => {
   const handleBlur =  () => {
     setTimeout(function(){
       setSearchOnFocused(false);
-   }, 120);
+   }, 150);
   }
 
   return (

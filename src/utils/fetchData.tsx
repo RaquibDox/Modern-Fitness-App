@@ -1,15 +1,16 @@
-import { fetchOptionsType } from "./tsTypes";
+import { fetchOptionsType, fetchYoutubeOptionsType } from "./tsTypes";
 
 export const exerciseOptions: fetchOptionsType = {
     method: 'GET',
     // url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+    params: {limit: '2000'},
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
   };
 
-  export const youtubeOptions: fetchOptionsType = {
+  export const youtubeOptions: fetchYoutubeOptionsType = {
     method: 'GET',
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
