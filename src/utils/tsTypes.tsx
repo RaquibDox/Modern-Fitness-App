@@ -9,21 +9,13 @@ export type ExerciseType = {
 
   export type fetchOptionsType = {
     method: string,
-    params: {limit: string},
+    params?: {limit: string},
     headers: {
       'X-RapidAPI-Key': string,
       'X-RapidAPI-Host': string
     }
   }
-
-  export type fetchYoutubeOptionsType = {
-    method: string,
-    headers: {
-      'X-RapidAPI-Key': string,
-      'X-RapidAPI-Host': string
-    }
-  }
-
+  
   export type LazyLoadTypes = "ondemand" | "progressive" | "anticipated";
 
   export type SliderSettingsType = {dots: boolean, infinite: boolean, lazyLoad: LazyLoadTypes | undefined, speed: number, slidesToShow: number, slidesToScroll: number, responsive: { breakpoint: number, settings: { slidesToShow: number, slidesToScroll: number } }[] };

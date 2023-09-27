@@ -1,4 +1,4 @@
-import { fetchOptionsType, fetchYoutubeOptionsType } from "./tsTypes";
+import { fetchOptionsType } from "./tsTypes";
 
 export const exerciseOptions: fetchOptionsType = {
     method: 'GET',
@@ -10,7 +10,7 @@ export const exerciseOptions: fetchOptionsType = {
     }
   };
 
-  export const youtubeOptions: fetchYoutubeOptionsType = {
+  export const youtubeOptions: fetchOptionsType = {
     method: 'GET',
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
