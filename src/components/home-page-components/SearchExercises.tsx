@@ -28,7 +28,7 @@ const SearchExercises = () => {
     if (searchedTerm) {
       setTimeout(function () {
         window.scroll({ top: 1800, left: 100, behavior: "smooth" });
-      }, 100);
+      }, 150);
       dispatch(filterExercises({ search: searchedTerm }));
       setSearch("");
     } else {
