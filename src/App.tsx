@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import ExerciseDetail from './pages/ExerciseDetail'
 import Footer from './components/common-components/Footer'
 
-// import { useDispatch } from 'react-redux'
 import { useAppDispatch, useAppSelector } from './store/store'
 import { fetchExercises } from './features/exercise/exerciseSlice'
 import { fetchBodyParts, getBodyParts } from './features/bodypart/bodyPartSlice'

@@ -46,7 +46,6 @@ const searchTermSlice = createSlice({
 
 export const { addToSearchTerms } = searchTermSlice.actions;
 
-
 export const getSearchTerms = (state: SearchStateType) => state.searchTerms.searchTerms;
 
 export default searchTermSlice.reducer;

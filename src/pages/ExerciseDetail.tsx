@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -40,11 +39,9 @@ const ExerciseDetail = () => {
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
 
       const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
-      // const exerciseDetailData = { bodyPart: "waist", equipment: "body weight", id: "0001", name: "3/4 sit-up", target: "abs" };
       setExerciseDetail(exerciseDetailData);
 
       const exerciseVideoData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
-
       setExerciseVideos(exerciseVideoData.contents);
 
       setTargetMuscle(exerciseDetailData.target);

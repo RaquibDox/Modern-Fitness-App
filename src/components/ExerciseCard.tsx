@@ -3,7 +3,6 @@ import { ExerciseType } from '../utils/tsTypes'
 import { Link } from 'react-router-dom';
 
 const ExerciseCard = memo(({exercise}: {exercise: ExerciseType}) => {
-  // console.log(exercise.gifUrl);
   
   return (
     <Link to={`/exercise/${exercise.id}`}

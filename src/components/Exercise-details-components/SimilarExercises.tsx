@@ -1,4 +1,3 @@
-import React from 'react'
 import SimilarScrollBar from './SimilarScrollBar'
 import Loader from '../Loader'
 
@@ -20,11 +19,11 @@ const SimilarExercises = ({targetMuscle, equipment}: {targetMuscle: string, equi
   exercise.equipment.toLowerCase().includes(equipment))
   return (
     <div className='mt-0 lg:mt-[100px] font-sans'>
-      <h2 className='text-3xl text-center sm:text-4xl font-semibold ml-8 mb-4'>Exercises that target the same muscle group</h2>
+      <h2 className='mb-4 ml-8 text-3xl font-semibold text-center sm:text-4xl'>Exercises that target the same muscle group</h2>
       <div className='w-screen'>
         {targetMuscleExercises.length ? <SimilarScrollBar data={targetMuscleExercises}/> : <Loader />}
       </div>
-      <h2 className='text-3xl text-center sm:text-4xl font-semibold ml-8 mb-4'>Exercises that uses the same equipment</h2>
+      <h2 className='mb-4 ml-8 text-3xl font-semibold text-center sm:text-4xl'>Exercises that uses the same equipment</h2>
       <div className='w-screen'>
         {equipmentExercises.length ? <SimilarScrollBar data={equipmentExercises}/> : <Loader />}
       </div>

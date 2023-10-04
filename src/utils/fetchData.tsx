@@ -2,7 +2,6 @@ import { fetchOptionsType } from "./tsTypes";
 
 export const exerciseOptions: fetchOptionsType = {
     method: 'GET',
-    // url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
     params: {limit: '2000'},
     headers: {
       'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,

@@ -28,7 +28,7 @@ const Exercises = () => {
   const currentItems = filteredExercises.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(filteredExercises.length / itemsPerPage);
 
-  const handlePageClick = (event: any) => {
+  const handlePageClick = (event: { selected: number }) => {
     // console.log(event.selected);  
     window.scrollTo({ top: 1800, behavior: 'smooth'})
     const newOffset = (event.selected * itemsPerPage) % filteredExercises.length;
