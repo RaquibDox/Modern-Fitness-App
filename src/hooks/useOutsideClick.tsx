@@ -1,9 +1,9 @@
 import { RefObject, useEffect, useState } from "react";
 
-const useOutsideClick = <T extends HTMLElement>(ref: RefObject<T>)  => {
+const useOutsideClick = <T extends HTMLElement>(ref: RefObject<T>) => {
   const [check, setCheck] = useState(true);
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent ) {
+    function handleClickOutside(event: MouseEvent) {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         setCheck(false);
       } else {
